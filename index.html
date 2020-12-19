@@ -6,14 +6,17 @@
 <title>Project 1 Recipe App</title>
 
 <style>
-.container {
-  display: flex;
+
+
+li {
+    display: inline;
+    
+
 }
-.container > div {
-  flex: 1; 
-}
+
 ul {
  list-style: none;
+
 }
 #search {
   width: 30%;
@@ -32,6 +35,12 @@ ul {
   float: left;
   padding: 15px;
   border: 1px solid rgb(241, 235, 235);
+}
+footer {
+    float: left;
+    background-color: rgb(253, 244, 247);
+    text-align: center;
+    border-width: 5px;
 }
 /* For Desktop */
 .col-1 {width: 8.33%;}
@@ -98,10 +107,12 @@ ul {
 
 
 
-<footer>
+<footer class="col-12">
   <p>Footer</p>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script type="text/javascript" src="scripts/scripts.js"></script>
 
 </body>
 </html>
