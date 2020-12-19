@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="./style.css">
+<title>Project 1 Recipe App</title>
+
+<style>
+.container {
+  display: flex;
+}
+.container > div {
+  flex: 1; 
+}
+ul {
+ list-style: none;
+}
+#search {
+  width: 30%;
+  float: left;
+  padding: 15px;
+  border: 1px solid rgb(241, 235, 235);
+}
+#recipe-result {
+  width: 50%;
+  float: left;
+  padding: 15px;
+  border: 1px solid rgb(241, 235, 235);
+}
+#spare {
+  width: 10%;
+  float: left;
+  padding: 15px;
+  border: 1px solid rgb(241, 235, 235);
+}
+/* For Desktop */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+<header>
+<h2>An Online Recipe Book</h2>
+</header>
+
+<nav>
+<ul id="nav1">
+  <li><a href="#home">Home</a></li>
+  <li><a href="#search">Search</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+</nav>
+
+<div class ="container">
+<div  class="col-3" id= "search" >
+    Search what you feel like eating today
+<input type="text" id="keyword" placeholder="Search recipes" title="Type in a keyword">
+
+<ul id="myUL">
+    <li><a href="#">Beef</a></li>
+    <li><a href="#">Chicken</a></li>
+  
+    <li><a href="#">Pork</a></li>
+    <li><a href="#">Vegetarian</a></li>
+  
+    <li><a href="#">Vegan</a></li>
+    <li><a href="#">Salad</a></li>
+    <li><a href="#">Smoothies</a></li>
+  </ul>
+
+  <button class="button" id ="searchBtn">Search</button>
+</div>
+ <div class= "col-6" id = "recipe-result">result section </div>
+
+<div class = "col-3" id= "spare">spare div</div>
+   
+   
+</div>
+
+
+
+<footer>
+  <p>Footer</p>
+</footer>
+
+
+</body>
+</html>
+ 
+ 
+
