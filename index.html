@@ -3,13 +3,18 @@
 <head>
 <meta charset="UTF-8" />
 <link rel="stylesheet" href="./style.css">
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
 <title>Project 1 Recipe App</title>
+
 
 <style>
 
 
-li {
-    display: inline;
+
     
 
 }
@@ -18,102 +23,151 @@ ul {
  list-style: none;
 
 }
-#search {
-  width: 30%;
-  float: left;
-  padding: 15px;
-  border: 1px solid rgb(241, 235, 235);
-}
-#recipe-result {
-  width: 50%;
-  float: left;
-  padding: 15px;
-  border: 1px solid rgb(241, 235, 235);
-}
-#spare {
-  width: 10%;
-  float: left;
-  padding: 15px;
-  border: 1px solid rgb(241, 235, 235);
-}
-footer {
-    float: left;
-    background-color: rgb(253, 244, 247);
-    text-align: center;
-    border-width: 5px;
-}
-/* For Desktop */
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
 
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-  [class*="col-"] {
-    width: 100%;
-  }
+
+footer {
+    
+    text-align: center;
+    border-width: 30px;
 }
+
 </style>
 </head>
 
 <body>
-<header>
-<h2>An Online Recipe Book</h2>
-</header>
-
-<nav>
-<ul id="nav1">
+    
+   
+<nav class="nav-wrapper blue lighten-4">
+    <div class="container">
+ <a href ="#" class="brand-logo left black-text">An Online Recipe Book</a> 
+ <a href ="#" class="sidenav-trigger right black-text" data-target="navShortCut">
+     <i class="material-icons">menu</i>
+ </a>
+ <!-- Navbar Links-->
+ <ul class="right hide-on-small-only">
   <li><a href="#home">Home</a></li>
   <li><a href="#search">Search</a></li>
   <li><a href="#contact">Contact</a></li>
   <li><a href="#about">About</a></li>
 </ul>
 </nav>
+<!-- Links that appear via drop down (side navigation when screen size is small / medium)-->
+<ul class="sidenav" id="navShortCut">
+  <li><a href="#home">Home</a></li>
+  <li><a href="#search">Search</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
 
-<div class ="container">
-<div  class="col-3" id= "search" >
-    Search what you feel like eating today
-<input type="text" id="keyword" placeholder="Search recipes" title="Type in a keyword">
+<div class="row">
+    <div class="col s12 l6">
+        <div class="card">
+            <div class="card-image">
+                <!-- link to display image on card-->
+                <img src="https://www.dinneratthezoo.com/wp-content/uploads/2017/10/firecracker-chicken-1.jpg" alt="Firecracker Chicken Image">
+                <a href ="#" class ="halfway-fab btn-floating pink pulse">
+                    <i class="material-icons">favorite</i>
+                </a>
+            </div>
+                <div class="card-content center">
+                    <!-- Quote/ title on card body-->
+                    <span class="card-title">"Nothing Brings People Together Like - Good Food"! </span>
+   
+                <!-- Recipe Name-->
+                    <h4>Fire Cracker Chicken Recipe</h4>
+                    <!-- About the recipe-->
+                        <p>This firecracker chicken recipe is chunks of crispy chicken tossed in a sweet and spicy sauce. An easy dinner option that the whole family will love!</p>
+                        
+                    </div>
+                    <!-- Links to recipe instructions & ingredients -->
+                    <div class ="card-action">
+                        <a href ="https://www.dinneratthezoo.com/wprm_print/10393">Instructions</a>
+                        <a href ="https://www.dinneratthezoo.com/wprm_print/10393">Ingredients</a>
+                    </div>
+                
+            </div>
+            
+        </div>
+    
 
-<ul id="myUL">
+<div class="col s12 l6">
+<div class="card">
+    <div class="card-image">
+        <!-- link to display image on card-->
+        <img src="https://www.dinneratthezoo.com/wp-content/uploads/2018/01/raspberry-smoothie-3.jpg" alt="Raspberry Smoothie Image">
+        <a href ="#" class ="halfway-fab btn-floating pink pulse">
+            <i class="material-icons">favorite</i>
+        </a>
+    </div>
+        <div class="card-content center">
+         <!-- Quote/ title on card body-->
+         <span class="card-title">"Fresh Your Day Up"! </span>   
+
+        <!-- Recipe Name-->
+            <h4>Raspberry Smoothie Recipe</h4>
+            <!-- About the recipe-->
+                <p>This raspberry smoothie recipe is full of berries, banana and Greek yogurt, all blended up into smooth and creamy perfection!</p>
+                
+            </div>
+            <!-- Links to recipe instructions & ingredients -->
+            <div class ="card-action">
+                <a href ="https://www.dinneratthezoo.com/wprm_print/12073">Instructions</a>
+                <a href ="https://www.dinneratthezoo.com/wprm_print/12073">Ingredients</a>
+            </div>
+        
+    </div>
+    
+</div>
+</div>
+</div>
+
+
+<div class="row ">
+<div  class="col s12 m4 l4" id= "search" >
+    <p class="center">Enter a keyword to search through our recipes or click on our quicklinks below</p>
+<input type="text" id="keyword" placeholder="Search" title="Type in a keyword">
+
+<ul id="recipeQuicklinks">
     <li><a href="#">Beef</a></li>
     <li><a href="#">Chicken</a></li>
+    <li><a href="#">Smoothies</a></li>
   
     <li><a href="#">Pork</a></li>
     <li><a href="#">Vegetarian</a></li>
   
     <li><a href="#">Vegan</a></li>
-    <li><a href="#">Salad</a></li>
-    <li><a href="#">Smoothies</a></li>
+    <li><a href="#">Salads</a></li>
+    <li><a href="#">Sweets</a></li>
   </ul>
 
-  <button class="button" id ="searchBtn">Search</button>
+  <button class="btn-floating waves-effect waves-light pulse transparent black-text" id ="searchBtn">GO</button>
 </div>
- <div class= "col-6" id = "recipe-result">result section </div>
+ <div class= "col s12 m4 l3 z-depth-z" id = "recipe-result">result section </div>
 
-<div class = "col-3" id= "spare">spare div</div>
-   
-   
+<div class = "col s12 m4 l3" id= "spare">spare div</div>
+  </div> 
 </div>
 
 
+  
+   
 
-<footer class="col-12">
+<div class="row"></div>
+<footer class="col-12  blue lighten-4 white-text flow-text">
   <p>Footer</p>
 </footer>
+</div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
 <script type="text/javascript" src="scripts/scripts.js"></script>
-
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".sidenav").sidenav()
+    })
+</script>
 </body>
 </html>
  
