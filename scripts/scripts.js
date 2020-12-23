@@ -23,7 +23,7 @@ function getRecipe(mainIngredient) {
 }
 
 // Simple listener for our search button.
-$('#searchBtn.button').click(function (event) {
+$('#searchBtn').click(function (event) {
     let recipeObject;
     event.preventDefault();
     // When clicked, grab the keyword and send it to the API for a search.
