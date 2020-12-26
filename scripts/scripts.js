@@ -8,6 +8,7 @@ const API_PATH = "https://api.edamam.com/search";
 // <script type="text/javascript" src="scripts/scripts.js"></script>
 
 function getRecipe(mainIngredient) {
+    // Gets a bunch of recipes matching the keyword searched.
     let apiUrl = API_PATH;
     let apiUrlExtension = "?q=" + mainIngredient;
     apiUrl += apiUrlExtension + API_APP_ID + API_APP_KEY;
@@ -17,8 +18,14 @@ function getRecipe(mainIngredient) {
         url: apiUrl,
         method: "GET"
     }).then(function(response) {
-        // console.log(response);
-        $('#recipe-result').text(JSON.stringify(response));
+        let recipeResult = $('#recipe-result');
+        recipeResult.empty();
+        // add the recipe name to the results.
+        response.hits.forEach(function(hit) {
+            let listItem = $('<p>');
+            listItem.html(hit.recipe.label);
+            recipeResult.append(listItem);
+        })
     });
 }
 

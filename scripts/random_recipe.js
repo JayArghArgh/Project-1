@@ -18,7 +18,6 @@ function getRandomRecipe() {
         method: "GET"
     }).then(function(response) {
         let recipe = response.hits[randomRecipe];
-        console.log(recipe);
         let displayRow = $('#random-recipes');
         let randomColumn = $('<div>');
         let randomCard = $('<div>').attr('class', 'card');
@@ -27,10 +26,19 @@ function getRandomRecipe() {
         let cardContent = $('<div>');
         let cardTitle = $('<span>').attr('class', 'card-title');
 
-        cardTitle.text("<h1>" + recipe.recipe.label + "</h1>");
+        recipeImage.attr("width", "100%");
+
+        cardTitle.html("<quote>" + recipe.recipe.label + "</quote>");
 
         cardContent.append(cardTitle);
         cardImage.append(recipeImage);
+        cardImage.append('<a href ="#" class ="halfway-fab btn-floating pink pulse"><i class="material-icons">favorite</i></a>');
+
+        cardContent.append('<h4>Fire Cracker Chicken Recipe</h4><p>This firecracker chicken recipe is chunks of crispy chicken tossed in a sweet and spicy sauce. An easy dinner option that the whole family will love!</p>');
+
+        cardContent.append('<div class ="card-action"><a href ="https://www.dinneratthezoo.com/wprm_print/10393">Instructions</a><a href ="https://www.dinneratthezoo.com/wprm_print/10393">Ingredients</a></div>');
+
+
         randomCard.append(cardImage);
         randomCard.append(cardContent);
 
