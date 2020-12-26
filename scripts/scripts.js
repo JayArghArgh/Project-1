@@ -17,7 +17,7 @@ function getRecipe(mainIngredient) {
         url: apiUrl,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
+        // console.log(response);
         $('#recipe-result').text(JSON.stringify(response));
     });
 }
