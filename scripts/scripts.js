@@ -74,3 +74,4 @@ $("#ql8").click(function () {
     getRecipe(ql1Text);
 });
 
+// just a change
