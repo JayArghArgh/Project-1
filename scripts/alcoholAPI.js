@@ -29,26 +29,25 @@ function getWinePairing(mainIngredient) {
                 let newP = $('<p>');
                 newP.html(winePairFail);
                 spareDivList.append(newP);
+            } else {
+                for (var ii = 0; ii < response.pairedWines.length; ii++) {
+                    let wineListItem = $('<li>');
+                    let wineListHeading = $('<h6>');
+                    let wineName = response.pairedWines[ii];
+                    // returning all lowercase wine names so will make first letter uppercase
+                    let wineFirstLetter = wineName.charAt(0);
+                    let wineWithCapitalFL = wineFirstLetter.toUpperCase();
+                    let wineNameCapitalFL = wineName.replace(wineFirstLetter, wineWithCapitalFL);
+                    // adding the list of paired wines to the div list
+                    wineListItem.append(wineListHeading);
+                    wineListHeading.html(wineNameCapitalFL);
+                    spareDivList.append(wineListItem);
+                };
+                // appending the wine pairing text after the list of wines 
+                let wineListPara = $('<p>');
+                wineListPara.html(response.pairingText);
+                spareDivList.append(wineListPara);
             }
-                        
-            
-            for (var ii = 0; ii < response.pairedWines.length; ii++) {
-                let wineListItem = $('<li>');
-                let wineListHeading = $('<h6>');
-                let wineName = response.pairedWines[ii];
-                // returning all lowercase wine names so will make first letter uppercase
-                let wineFirstLetter = wineName.charAt(0);
-                let wineWithCapitalFL = wineFirstLetter.toUpperCase();
-                let wineNameCapitalFL = wineName.replace(wineFirstLetter, wineWithCapitalFL);
-                // adding the list of paired wines to the div list
-                wineListItem.append(wineListHeading);
-                wineListHeading.html(wineNameCapitalFL);
-                spareDivList.append(wineListItem);
-            };
-            // appending the wine pairing text after the list of wines 
-            let wineListPara = $('<p>');
-            wineListPara.html(response.pairingText);
-            spareDivList.append(wineListPara);
         });
         
     };
