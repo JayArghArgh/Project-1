@@ -2,14 +2,14 @@
 <html lang="en-us">
 <head>
 <meta charset="UTF-8" />
-<link rel="stylesheet" href="./style.css">
+
 <!--Import Google Icon Font-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link rel="stylesheet" href="./style.css">
 
 <title>Project 1 Recipe App</title>
-
 
 <style>
 
@@ -23,14 +23,12 @@ footer {
     text-align: center;
     border-width: 30px;
 }
-
 </style>
-</head>
 
+</head>
 <body>
     <!-- Begin Container -->
     <div class="container">
-
         <!-- Begin Main Nav -->
         <nav class="nav-wrapper blue lighten-4">
             <a href ="#" class="brand-logo left black-text">An Online Recipe Book</a>
@@ -94,8 +92,7 @@ footer {
 
         <!-- Begin Footer -->
         <footer class="col-12 blue lighten-4 white-text flow-text">
-            <p>Footer</p>
-            
+            <p>Footer</p>         
         </footer>
         <!-- End Footer -->
 
@@ -103,38 +100,43 @@ footer {
     <!-- end container-->
 
 <!--------------------------------------------------- MODAL START ------------------------------------------------------------------------->
-
-
 <!-- Modal Structure -->
-<div id="modal1" class="modal">
+<div id="modal1" class="modal" style = "max-height: 90%; top:0px;" >
   <div class="modal-content">
-    
     <h4>Recipe</h4>
     <div id="modRecipeName"></div>
-    <img id="modRecipePic">
-    <div id="modRecipeIngredients"></div>
     <br>
+    <img id="modRecipePic">
+    <br>
+    <table>
+        <thead id = "modTablHead">        
+            <tr>
+              <th>Quantity / Ingredients</th>              
+            </tr>
+        </thead>                
+        <tbody id = "modRecipeIngredients">                   
+        </tbody>            
+    </table>    
     <br>
     <div>Email your recipe?</div>
+    <br>
     <div class="row">
         <form class="col s12">
           <div class="row">
-            
                 <div class="input-field col s12">
                     <input id="modNameInput" type="text" class="validate">
                     <label for="last_name">Name</label>
-                  </div>
-                
+                  </div>              
               </div>
             <div class="row">
                 <div class="input-field col s12">
                   <input id="modEmailInput" type="email" class="validate">
                   <label for="email">Email</label>
                 </div>
-              </div>
+            </div>
     </div>
-
-  </div>
+  </div> 
+  <br>
   <div class="modal-footer">
 
     <a id="decIndex" class="btn waves-effect waves-light">
@@ -147,13 +149,12 @@ footer {
 
     <a href="#!" id="modEmailBtn" class="waves-effect waves-green btn-flat">Email</a>
     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-    
+
   </div>
 </div>
 
 <!--------------------------------------------------- MODAL END ------------------------------------------------------------------------->
-
-    <!-- include scripts here -->
+<!-- include scripts here -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script> 
@@ -161,15 +162,12 @@ footer {
     <script type="text/javascript" src="scripts/random_recipe.js"></script>
     <script type="text/javascript" src="scripts/alcoholAPI.js"></script>
     <!-- Compiled and minified JavaScript -->
-    
+   
     <script>
         $(document).ready(function() {
             $(".sidenav").sidenav()
         })
     </script>
-
-
-
 </body>
 </html>
 <!-- Just another change -->

@@ -49,7 +49,6 @@ $('#searchBtn').click(function (event) {
 
 
 //-------------------------------------------------------------MODAL-------------------------------------------------------------------------//
-
 //Get Modal objects
 let modRecipeNameObj = document.getElementById("modRecipeName");
 let modRecipePicObj = document.getElementById("modRecipePic");
@@ -61,7 +60,6 @@ let decIndexObj = document.getElementById("decIndex");
 let incIndexObj = document.getElementById("incIndex");
 
 // Add modal event listeners with callbacks
-
 // Initialise modal event listener
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.modal');
@@ -87,39 +85,50 @@ modEmailBtnObj.addEventListener("click", function(){
     else{ 
         alert ("Enter a valid email you twat!")
     }
-
 });
 
 //Modal functions
 
 //Increment modal index and populate modal
 function incModalIndex(){
-
-   // if (modIndex < (apiResponseParsed.hits.length - 1)){
+   if (modIndex < (apiResponseParsed.hits.length - 1)){
         modIndex ++;
         popModal();
-  //  }
-    
+    }
 }
 
 //Decrement modal index and populate modal
 function decModalIndex(){
-
-  //  if (modIndex > 0){
+    if (modIndex > 0){
         modIndex --;
         popModal();
-  //  }
+    }
 }
 
 //Populate modal function
 function popModal(){
 
+    //Add recipe heading from api
     modRecipeNameObj.textContent = apiResponseParsed.hits[modIndex].recipe.label;
+    //Add recipe image from api
     modRecipePicObj.src = apiResponseParsed.hits[modIndex].recipe.image;
-    modRecipeIngredientsObj.textContent = apiResponseParsed.hits[modIndex].recipe.ingredientLines;  
-   
-}
+    //Get table objext from id
+    let table = document.getElementById("modRecipeIngredients");
+    //If table already created delete
+    let totalRowCount = table.rows.length
+        
+    document.getElementsByTagName("tbody")[0].remove();
+    let tableBody = document.createElement('tbody');
+    tableBody.setAttribute("id", "modRecipeIngredients");
+    document.getElementById("modTablHead").appendChild(tableBody);
 
+    //Loop through ingredients and make table from current ingredients list
+    for (let x=0; x < apiResponseParsed.hits[modIndex].recipe.ingredients.length; x++) { 
+        let row = tableBody.insertRow(x);
+        let cell1 = row.insertCell(0);
+        cell1.innerHTML = apiResponseParsed.hits[modIndex].recipe.ingredients[x].text;
+    }
+}
 //-------------------------------------------------------------Send email functions-------------------------------------------------------------------------//
 
 //Send User ingredients vias Gmail SMTP
