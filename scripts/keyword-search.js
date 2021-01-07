@@ -76,13 +76,17 @@ function storeKeyword() {
     localStorage.setItem("keywords", JSON.stringify(userKeywordArray));   
 }
 
+
+
+// SEARCH BOX INPUT
+
 let keywordSearch;
 let keyword = "";
 // When a keyword is entered in the Search input box...
 $("#searchBtn").on("click", function (event) {
     event.preventDefault();
     // When clicked, grab the keyword and send it to the API for a search.
-    keywordSearch = $('#keyword').val();
+    keywordSearch = $('#keywordID').val();
     
     // This grabs text from the input box
     keyword = keywordSearch.trim();
@@ -109,10 +113,20 @@ $("#searchBtn").on("click", function (event) {
     }
 });
 
+$(".navbar-search-link").on("click", function() {
+    console.log("navbar search link clicked");
+    setFocus();
+})
+
+function setFocus() {
+    let keywordID = $("#keywordID");
+    keywordID.focus();
+    console.log("setFocus() is running");
+}
 
 
-
-// When an element insdie the keyword <ul> is clicked...
+// QUICKLINKS
+// When an element inside the keyword <ul> is clicked...
 keywordList.on("click", function (event) {
     event.preventDefault();
     
@@ -120,7 +134,7 @@ keywordList.on("click", function (event) {
 
     // If that element is a button...
     if (element.matches("#removeBtn") === true) {
-        // Get its data-index value and remove the cities element from the table
+        // Get its data-index value and remove the keywords element from the table
         var index = element.parentElement.parentElement.getAttribute("data-index");
         userKeywordArray.splice(index, 1);
         
@@ -133,7 +147,7 @@ keywordList.on("click", function (event) {
 
 
 
-    
+
 function renderQuicklinks() {
     for (let z = 0; z < userKeywordArray.length; z++) {
         let quicklinkIndex = "#ql"+z;

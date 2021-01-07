@@ -91,7 +91,7 @@ footer {
             <!-- Navbar Links-->
             <ul class="right hide-on-med-and-down">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#search">Search</a></li>
+                <li class="navbar-search-link"><a href="#search">Search</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#about">About</a></li>
             </ul>
@@ -101,7 +101,7 @@ footer {
         <!-- Links that appear via drop down (side navigation when screen size is small / medium)-->
         <ul class="sidenav" id="navShortCut">
             <li><a href="#home">Home</a></li>
-            <li><a href="#search">Search</a></li>
+            <li class="navbar-search-link"><a href="#search">Search</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="#about">About</a></li>
         </ul>
@@ -115,17 +115,17 @@ footer {
         <!-- Begin Search area -->
         <div class="row ">
             <div class="col s12 m4 l4" id="search">
-                <form>
-                <p class="justified">Enter a keyword to search through our recipes or click on our quicklinks below</p>
-                <div class="row">
-                    <div class="col s9">
-                            <input type="search" name="search" required id="keyword" placeholder="Search" title="Type in a keyword">
-                        </form>
+                <form action="" method="get" id="searchFormID">
+                    <p class="justified">Enter a keyword to search through our recipes or click on our quicklinks below</p>
+                    <div class="row">
+                        <div class="col s9 input-field">
+                            <input type="text" class="validate" name="search" id="keywordID" placeholder="Search" title="Type in a keyword">
+                        </div>
+                        <div class="col s3" id="searchBtnDiv">
+                            <button class="btn-floating waves-effect waves-light pulse transparent black-text" id="searchBtn">GO</button>
+                        </div>
                     </div>
-                    <div class="col s3" id="searchBtnDiv">
-                        <button class="btn-floating waves-effect waves-light pulse transparent black-text" id="searchBtn">GO</button>
-                    </div>
-                </div>
+                </form>
                 <div class="row">
                     <div class="col s12">
                         <ul id="recipeQuicklinks">
