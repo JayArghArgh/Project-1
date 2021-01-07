@@ -1,10 +1,10 @@
 # Project 1 - Hangry Recipe Finder
 ## Group Members
 
- * Blake Strickland
- * Justin Reid
- * Lachlan Cameron
- * Linda Hlubi
+ * Blake Strickland (AKA The Silent Achiever)
+ * Justin Reid (The Glue)
+ * Lachlan Cameron (Modal Wrestler)
+ * Linda Hlubi (The Style Queen (or King))
 
 ## App url:
 
