@@ -15,10 +15,11 @@ It allows users to find full recipes by searching using ingredients, dish names,
 This project features responsive design
 
 Has responsive layout for:
-* For large, medium and small screens using Materialize
+* For large, medium and small screens using Materialize.
 
 Code Used:
 
+* Java Script
 * J Query
 * CSS
 * HTML
