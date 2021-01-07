@@ -15,12 +15,12 @@ function initKeywordList() {
     // Parsing the JSON string to an object
     let storedKeywordList = JSON.parse(localStorage.getItem("keywords"));
 
-    if (storedKeywordList === null) {
+    if (storedKeywordList === null || storedKeywordList === undefined) {
         storeKeyword();
     } else {
 
         // If Keywords were retrieved from localStorage, update the userKeywordsArray array to it
-        if (storedKeywordList !== null && storedKeywordList.length > 0) {
+        if ((storedKeywordList !== null  || storedKeywordList === undefined) && storedKeywordList.length > 0) {
             userKeywordArray = storedKeywordList;
         } else if (storedKeywordList.length == 0) {
             localStorage.removeItem("keywords");
