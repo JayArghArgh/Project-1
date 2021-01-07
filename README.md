@@ -1,10 +1,10 @@
 # Project 1 - Hangry Recipe Finder
 ## Group Members
 
-### Blake Strickland
-### Justin Reid
-### Lachlan Cameron
-### Linda Hlubi
+ * Blake Strickland
+ * Justin Reid
+ * Lachlan Cameron
+ * Linda Hlubi
 
 ## App url:
 
@@ -30,7 +30,9 @@ It allows users to find full recipes by searching using ingredients, dish names,
 * SMTP.js
 * Materialise.js
 
-### JSON was utilised as a format for storing data via session & local web client storage and as a common data transfer medium in between the users web client and API's.
+## HTTP GET requests
+
+* JSON was utilised as a format for storing data via session & local web client storage and as a common data transfer medium in between the users web client and API's.
 
 ## Project Requirements:
 
