@@ -24,7 +24,7 @@ function getWinePairing(mainIngredient) {
             spareDiv.empty();
             let spareDivList = $('<ul>');
             $(spareDiv).append($(spareDivList));
-            
+
             // validating AJAX response (ie. in case there is no matching wine)
             if (response.status == "failure" || response.pairingText == "") {
                 let winePairFail = "Could not find a wine pairing for " + mainIngredient;
@@ -32,7 +32,7 @@ function getWinePairing(mainIngredient) {
                 newP.html(winePairFail);
                 spareDivList.append(newP);
             }
-                        
+
             else {
                 for (var ii = 0; ii < response.pairedWines.length; ii++) {
                     let wineListItem = $('<li>');
@@ -54,5 +54,4 @@ function getWinePairing(mainIngredient) {
             }
         });
     };
-    
 
