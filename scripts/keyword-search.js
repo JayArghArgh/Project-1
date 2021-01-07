@@ -14,16 +14,20 @@ function initKeywordList() {
     // Get stored search list from localStorage
     // Parsing the JSON string to an object
     let storedKeywordList = JSON.parse(localStorage.getItem("keywords"));
-    
-    // If Keywords were retrieved from localStorage, update the userKeywordsArray array to it
-    if (storedKeywordList !== null && storedKeywordList.length > 0) {
-        userKeywordArray = storedKeywordList;
+
+    if (storedKeywordList === null) {
+        storeKeyword();
+    } else {
+
+        // If Keywords were retrieved from localStorage, update the userKeywordsArray array to it
+        if (storedKeywordList !== null && storedKeywordList.length > 0) {
+            userKeywordArray = storedKeywordList;
+        } else if (storedKeywordList.length == 0) {
+            localStorage.removeItem("keywords");
+        }
+        // Render keywords to the DOM
+        storeKeyword();
     }
-    else if (storedKeywordList.length == 0) {
-        localStorage.removeItem("keywords"); 
-    }
-    // Render keywords to the DOM
-    storeKeyword();
     renderKeywordList();
     renderQuicklinks();
 }
