@@ -18,6 +18,7 @@ function getRecipe(mainIngredient) {
         url: apiUrl,
         method: "GET"
     }).then(function(response) {
+        console.log(response);
         let recipeResult = $('#recipe-result');
         recipeResult.empty();
         // add the recipe name to the results.
@@ -40,6 +41,7 @@ $('#searchBtn').click(function (event) {
     getRecipe(recipeObject);
 });
 
+<<<<<<< HEAD
 
 
 // Initialise modal event listener
@@ -95,3 +97,41 @@ function sendEmail(recipient, response) {
 		message => alert("Mail sent successfully - Please check your Junk Folder")
 	);
 }
+=======
+// Listeners for quick links -- simplify in the future perhaps via addEventListener
+$("#ql1").click(function () {
+    const ql1Text = $("#ql1").html();
+    getRecipe(ql1Text);
+});
+$("#ql2").click(function () {
+    const ql1Text = $("#ql2").html();
+    getRecipe(ql1Text);
+});
+$("#ql3").click(function () {
+    const ql1Text = $("#ql3").html();
+    getRecipe(ql1Text);
+});
+$("#ql4").click(function () {
+    const ql1Text = $("#ql4").html();
+    getRecipe(ql1Text);
+});
+$("#ql5").click(function () {
+    const ql1Text = $("#ql5").html();
+    getRecipe(ql1Text);
+});
+$("#ql6").click(function () {
+    const ql1Text = $("#ql6").html();
+    console.log(ql1Text);
+    getRecipe(ql1Text);
+});
+$("#ql7").click(function () {
+    const ql1Text = $("#ql7").html();
+    getRecipe(ql1Text);
+});
+$("#ql8").click(function () {
+    const ql1Text = $("#ql8").html();
+    getRecipe(ql1Text);
+});
+
+// just another change
+>>>>>>> 8a8e4d148384505dabf2ecf76dec14d6fcd3fe0d
