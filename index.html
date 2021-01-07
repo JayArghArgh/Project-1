@@ -20,13 +20,57 @@
 
 
 ul {
- list-style: none;
-
+    list-style: none;
+}
+#recipeQuicklinks {
+    border: 1px solid rgb(224, 224, 224);
+    margin-right: 25%;
 }
 
+#searchBtnDiv {
+    padding: 0;
+}
+
+.keywords-list-item {
+    min-height: 35px;
+    border: 1px solid rgb(224, 224, 224);
+    vertical-align: middle;
+}
+li:first-of-type {
+    border-top: 1px solid rgb(224, 224, 224);
+}
+li:last-of-type {
+    border-bottom: 1px solid rgb(224, 224, 224);
+}
+.iconAnchor {
+    float:right;
+    margin-right: 10%;
+    top:0.4rem;
+    vertical-align: middle;
+}
+#removeBtn {
+    vertical-align: middle;
+}
+
+.remove-btn-div {
+    vertical-align: middle;
+}
+.clearfix {
+     overflow: auto;
+}
+.saved-keywords {
+    margin: 0;
+    line-height: 3rem;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10%;
+}
+
+#spare {
+    float: left;
+}
 
 footer {
-    
     text-align: center;
     border-width: 30px;
 }
@@ -70,30 +114,31 @@ footer {
 
         <!-- Begin Search area -->
         <div class="row ">
-            <div class="col s12 m4 l4" id="search" >
-                <p class="center">Enter a keyword to search through our recipes or click on our quicklinks below</p>
-                <input type="text" id="keyword" placeholder="Search" title="Type in a keyword">
-
-                <ul id="recipeQuicklinks">
-                    <li><a href="#" id="ql1">Beef</a></li>
-                    <li><a href="#" id="ql2">Chicken</a></li>
-                    <li><a href="#" id="ql3">Smoothies</a></li>
-
-                    <li><a href="#" id="ql4">Pork</a></li>
-                    <li><a href="#" id="ql5">Vegetarian</a></li>
-
-                    <li><a href="#" id="ql6">Vegan</a></li>
-                    <li><a href="#" id="ql7">Salads</a></li>
-                    <li><a href="#" id="ql8">Sweets</a></li>
-                </ul>
-
-                <button class="btn-floating waves-effect waves-light pulse transparent black-text" id="searchBtn">GO</button>
+            <div class="col s12 m4 l4" id="search">
+                <form>
+                <p class="justified">Enter a keyword to search through our recipes or click on our quicklinks below</p>
+                <div class="row">
+                    <div class="col s9">
+                            <input type="search" name="search" required id="keyword" placeholder="Search" title="Type in a keyword">
+                        </form>
+                    </div>
+                    <div class="col s3" id="searchBtnDiv">
+                        <button class="btn-floating waves-effect waves-light pulse transparent black-text" id="searchBtn">GO</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <ul id="recipeQuicklinks">
+                            <!-- quick links list is created in scripts.js file -->
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="col s12 m4 l3 z-depth-z" id="recipe-result">
+            <div class="col s12 m4 l4 z-depth-z" id="recipe-result">
                 result section
             </div>
 
-            <div class="col s12 m4 l3" id="spare">
+            <div class="col s12 m4 l4" id="spare">
                 spare div
             </div>
         </div>
@@ -113,6 +158,7 @@ footer {
     <script type="text/javascript" src="scripts/scripts.js"></script>
     <script type="text/javascript" src="scripts/random_recipe.js"></script>
     <script type="text/javascript" src="scripts/alcoholAPI.js"></script>
+    <script type="text/javascript" src="scripts/keyword-search.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
@@ -123,4 +169,3 @@ footer {
 
 </body>
 </html>
-<!-- Just another change -->
