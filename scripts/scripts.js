@@ -20,13 +20,14 @@ function getRecipe(mainIngredient) {
         url: apiUrl,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
+        
         let recipeResult = $('#recipe-result');
         recipeResult.empty();
         //Store response in session storage for use by other functions
         sessionStorage.setItem("apiResponse" , JSON.stringify(response));
         let apiResponse = sessionStorage.getItem("apiResponse");
         apiResponseParsed =  JSON.parse(apiResponse);
+        console.log(apiResponseParsed);
         // add the recipe name to the results.                
         response.hits.forEach(function(hit) {
             let listItem = $('<p>');
@@ -53,8 +54,9 @@ $('#searchBtn').click(function (event) {
 let modRecipeNameObj = document.getElementById("modRecipeName");
 let modRecipePicObj = document.getElementById("modRecipePic");
 let modRecipeIngredientsObj = document.getElementById("modRecipeIngredients");
-let modNameObj = document.getElementById("last_name");
-let modEmailObj = document.getElementById("email");
+let modNameInputObj = document.getElementById("modNameInput");
+let modEmailInputObj = document.getElementById ("modEmailInput");
+let modEmailBtnObj = document.getElementById("modEmailBtn");
 let decIndexObj = document.getElementById("decIndex");
 let incIndexObj = document.getElementById("incIndex");
 
@@ -67,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 //Add increment modal data index event listener
-decIndexObj.addEventListener("click", function(){
+incIndexObj.addEventListener("click", function(){
     incModalIndex();         
 });
 
@@ -77,10 +79,10 @@ decIndexObj.addEventListener("click", function(){
 });
 
 //Add Email event listener for modal
-modEmailObj.addEventListener("click", function(){
+modEmailBtnObj.addEventListener("click", function(){
 
-    if (modEmailObj.value != "undefined"){    
-        sendEmail(modEmailObj.value);
+    if (modEmailBtnObj.value !== null || modEmailBtnObj.value !== undefined){    
+        sendEmail();
     }   
     else{ 
         alert ("Enter a valid email you twat!")
@@ -93,20 +95,20 @@ modEmailObj.addEventListener("click", function(){
 //Increment modal index and populate modal
 function incModalIndex(){
 
-    if (modIndex < (apiResponseParsed.hits.length - 1)){
+   // if (modIndex < (apiResponseParsed.hits.length - 1)){
         modIndex ++;
         popModal();
-    }
+  //  }
     
 }
 
 //Decrement modal index and populate modal
 function decModalIndex(){
 
-    if (modIndex > 0){
+  //  if (modIndex > 0){
         modIndex --;
         popModal();
-    }
+  //  }
 }
 
 //Populate modal function
@@ -121,18 +123,18 @@ function popModal(){
 //-------------------------------------------------------------Send email functions-------------------------------------------------------------------------//
 
 //Send User ingredients vias Gmail SMTP
-function sendEmail(recipient) {   
+function sendEmail() {   
     
 	Email.send({
 	Host: "smtp.gmail.com",
 	Username : "project1monash@gmail.com",
 	Password : "epakqeohwuvlpxdm",
-	To : recipient,
+	To : modEmailInputObj.value,
 	From : "project1monash@gmail.com",
 	Subject : "Your Recipe",
 	Body : 
 	
-	"Thanks for using our recipe selection tool. Your recipe can be viewed at : " + apiResponseParsed.hits[modIndex].recipe.uri + " " +
+	"Hi " + modNameInputObj.value + "! Thanks for using our recipe selection tool. Your recipe can be viewed via the link @  : " + apiResponseParsed.hits[modIndex].recipe.uri + " " +
 	
 	"Ingredients : " +  apiResponseParsed.hits[modIndex].recipe.ingredientLines
 		

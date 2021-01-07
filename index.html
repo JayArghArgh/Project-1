@@ -95,7 +95,7 @@ footer {
         <!-- Begin Footer -->
         <footer class="col-12 blue lighten-4 white-text flow-text">
             <p>Footer</p>
-            <button onclick = "sendEmail('lachlan.cameron@geckogrp.com.au')" type="button">Email Recipe</button>
+            
         </footer>
         <!-- End Footer -->
 
@@ -104,8 +104,6 @@ footer {
 
 <!--------------------------------------------------- MODAL START ------------------------------------------------------------------------->
 
-<!-- Modal Trigger -->
-<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
 
 <!-- Modal Structure -->
 <div id="modal1" class="modal">
@@ -123,14 +121,14 @@ footer {
           <div class="row">
             
                 <div class="input-field col s12">
-                    <input id="last_name" type="text" class="validate">
+                    <input id="modNameInput" type="text" class="validate">
                     <label for="last_name">Name</label>
                   </div>
                 
               </div>
             <div class="row">
                 <div class="input-field col s12">
-                  <input id="email" type="email" class="validate">
+                  <input id="modEmailInput" type="email" class="validate">
                   <label for="email">Email</label>
                 </div>
               </div>
@@ -147,7 +145,7 @@ footer {
     <i class="material-icons">arrow_forward</i>
     </a> 
 
-    <a href="#!" id="modEmail" class="waves-effect waves-green btn-flat">Email</a>
+    <a href="#!" id="modEmailBtn" class="waves-effect waves-green btn-flat">Email</a>
     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
     
   </div>
