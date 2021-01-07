@@ -13,7 +13,7 @@
 
 ## About This App
 
-Our web application allows "Hangry Users" to quickly appease their insatiable and selective hunger by utilising our website to search for recipes using key ingredientsearch terms.
+Our web application allows "Hangry Users" to quickly appease their insatiable and selective hunger. Our quick and streamlined interface, backed up by our unmatched coding prowess enables even the most brain dead user (with low blood sugar levels) to gain an understanding of how to cook even the most complex of dishes. 
 
 Recipes do include information such as ingredients, quantities and a link for the cooking method. 
 
