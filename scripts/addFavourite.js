@@ -29,13 +29,4 @@ $('#random-recipes').click(function (event) {
 });
 
 
-// Once clicked get the recipe id.
-
-
-// If the recipe id isn't in the favourites already then add it.
-
-
-// Otherwise do nothing.
-
-
 // if user clicks favourites menu update the main div with the favourites. leave the search form present for the user.
