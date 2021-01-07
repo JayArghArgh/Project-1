@@ -28,7 +28,7 @@ Libraries Used:
 
 * JQuery.js
 * SMTP.js
-* Materilise.js
+* Materialise.js
 
 
 Project Requirements:
