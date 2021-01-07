@@ -10,21 +10,20 @@ App url:
 
 
 About This App
-It allows users to find full recipes by searching using ingredients, dish names, keywords. Recipes will include features such as the time it will take to prepare as well as how many servings the recipe will yield. The user will also be able to access a wine pairing feature which will recommend great wines to pair with their recipe of choice.  Users are also able to add recipes to their favourites and email them to themselves.  When a user searches and picks any recipe that recipe is automatically saved in a quicklinks section making it easy to access previous searches.  The app uses  3 Api’s Edamam, Spoonacular and …. to obtain its data.
+It allows users to find full recipes by searching using ingredients, dish names, keywords. Recipes will include features such as the time it will take to prepare as well as how many servings the recipe will yield. The user will also be able to access a wine pairing feature which will recommend great wines to pair with their recipe of choice.  Users are also able to add recipes to their favourites and email them to themselves.  When a user searches and picks any recipe that recipe is automatically saved in a quicklinks section making it easy to access previous searches.  The app uses  3 Api’s Edamam, Spoonacular and a SMTP API / library to obtain and send the data the user requires.
 
-This project features responsive design
+This project features a responsive design and has a responsive layout for:
 
-Has responsive layout for:
-* For large, medium and small screens using Materialize.
+* For large, medium and small screens and utilises Materilise CSS and JS libraries for formatting and functionality.
 
-Code Used:
+The type of code Used:
 
 * Java Script
 * CSS
 * HTML
 * JSON
 
-Libraries Used:
+Javascipt plugins / libraries employed:
 
 * JQuery.js
 * SMTP.js
