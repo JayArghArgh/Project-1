@@ -32,7 +32,11 @@ It allows users to find full recipes by searching using ingredients, dish names,
 
 ## HTTP GET requests
 
-* JSON was utilised as a format for storing data via session & local web client storage and as a common data transfer medium in between the users web client and API's.
+* JSON was utilised as a common data format for when data was transfered in between webservers / API's.
+
+## Persistent Storage
+
+Storing data via session & local web client storage in JSON format is used for data that needed to be persistent.
 
 ## Project Requirements:
 
