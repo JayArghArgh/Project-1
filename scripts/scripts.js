@@ -25,9 +25,6 @@ function getRecipe(mainIngredient) {
         sessionStorage.setItem("apiResponse" , JSON.stringify(response));
         let apiResponse = sessionStorage.getItem("apiResponse");
         apiResponseParsed =  JSON.parse(apiResponse);
-        // add the recipe name to the results.                
-        let recipeResult = $('#recipe-result');
-        recipeResult.empty();
         // add the recipe name to the results.
         response.hits.forEach(function(hit) {
             let listAnchor = $("<a>");
