@@ -2,6 +2,8 @@
 const API_APP_ID = "&app_id=7cfd493f";
 const API_APP_KEY = "&app_key=e16c4ecac435fcb87d81e33ed0937f0f";
 const API_PATH = "https://api.edamam.com/search";
+let modIndex = 0;
+let apiResponseParsed;
 
 // Place these next two lines in the index file before the </body>
 // <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
