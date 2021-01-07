@@ -20,10 +20,16 @@ Has responsive layout for:
 Code Used:
 
 * Java Script
-* J Query
 * CSS
 * HTML
 * JSON
+
+Libraries Used:
+
+* JQuery.js
+* SMTP.js
+* Materilise.js
+
 
 Project Requirements:
 
