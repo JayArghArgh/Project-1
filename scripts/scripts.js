@@ -21,8 +21,10 @@ function getRecipe(mainIngredient) {
         let recipeResult = $('#recipe-result');
         recipeResult.empty();
         // add the recipe name to the results.
+        console.log(response);
         response.hits.forEach(function(hit) {
             let listItem = $('<p>');
+            
             listItem.html(hit.recipe.label);
             recipeResult.append(listItem);
         })
@@ -37,3 +39,59 @@ $('#searchBtn').click(function (event) {
     recipeObject = $('#keyword').val();
     getRecipe(recipeObject);
 });
+
+
+
+// Initialise modal event listener
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems);
+  });
+
+
+//Get Modal objects
+var modRecipeNameObj = document.getElementById("modRecipeName");
+var modRecipePicObj = document.getElementById("modRecipePic");
+var modRecipeIngredientsObj = document.getElementById("modRecipeIngredients");
+var modEmailObj = document.getElementById("modEmail");
+
+
+//Add Email event listener for modal
+modEmailObj.addEventListener("click", function(){
+    sendEmail(modEmailObj.textContent,response.hits )         
+});
+
+
+
+function popModal(index){
+
+    modRecipeNameObj.textContent = response.hits[index].recipe.label;
+    modRecipePicObj.src = response.hits[index].recipe.image;
+    modRecipeIngredientsObj.textContent = response.hits[index].ingredientLines;  
+   
+}
+
+
+//Send User ingredients vias Gmail SMTP
+function sendEmail(recipient, response) {
+
+    console.log(recipient);
+    console.log(response);
+
+	Email.send({
+	Host: "smtp.gmail.com",
+	Username : "project1monash@gmail.com",
+	Password : "epakqeohwuvlpxdm",
+	To : recipient,
+	From : "project1monash@gmail.com",
+	Subject : "Your Recipe",
+	Body : 
+	
+	"Thanks for using our recipe selection tool. Your recipe can be viewed at " + hit.recipe.uri +
+	
+	"Ingredients" +  hit.recipe.ingredientLines
+		
+	}).then(
+		message => alert("Mail sent successfully - Please check your Junk Folder")
+	);
+}

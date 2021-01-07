@@ -13,17 +13,10 @@
 
 <style>
 
-
-
-    
-
-
-
 ul {
  list-style: none;
 
 }
-
 
 footer {
     
@@ -102,23 +95,77 @@ footer {
         <!-- Begin Footer -->
         <footer class="col-12 blue lighten-4 white-text flow-text">
             <p>Footer</p>
+            <button onclick = "sendEmail('lachlan.cameron@geckogrp.com.au')" type="button">Email Recipe</button>
         </footer>
         <!-- End Footer -->
 
     </div>
     <!-- end container-->
 
+<!---------------------------- MODAL --------------------------------------------->
+
+<!-- Modal Trigger -->
+<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    
+    <h4>Recipe</h4>
+    <div id="modRecipeName"></div>
+    <img id="modRecipePic">
+    <div id="modRecipeIngredients"></div>
+    
+    <div>Email your recipe?</div>
+    <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="row">
+                <div class="input-field col s12">
+                  <input id="email" type="email" class="validate">
+                  <label for="email">Name</label>
+                </div>
+              </div>
+            <div class="row">
+                <div class="input-field col s12">
+                  <input id="email" type="email" class="validate">
+                  <label for="email">Email</label>
+                </div>
+              </div>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+
+    <a id="decIndex" class="btn waves-effect waves-light">
+        <i class="material-icons">arrow_back</i>
+    </a> 
+
+    <a id="incIndex" class="btn waves-effect waves-light">
+    <i class="material-icons">arrow_forward</i>
+    </a> 
+
+    <a href="#!" id="modEmail" class="waves-effect waves-green btn-flat">Email</a>
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    
+  </div>
+</div>
+
     <!-- include scripts here -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script> 
     <script type="text/javascript" src="scripts/scripts.js"></script>
     <script type="text/javascript" src="scripts/random_recipe.js"></script>
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
     <script>
         $(document).ready(function() {
             $(".sidenav").sidenav()
         })
     </script>
+
+
 
 </body>
 </html>
