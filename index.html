@@ -1,34 +1,23 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-<meta charset="UTF-8" />
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./style.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Own stylesheet to assist with CSS -->
+    <link rel="stylesheet" href="style/style.css" />
 
-<!--Import Google Icon Font-->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<link rel="stylesheet" href="./style.css">
-
-<title>Project 1 Recipe App</title>
-
-<style>
-
-ul {
- list-style: none;
-
-}
-
-footer {
+    <title>Project 1 Recipe App</title>
     
-    text-align: center;
-    border-width: 30px;
-}
-</style>
-
 </head>
+
 <body>
     <!-- Begin Container -->
     <div class="container">
+
         <!-- Begin Main Nav -->
         <nav class="nav-wrapper blue lighten-4">
             <a href ="#" class="brand-logo left black-text">An Online Recipe Book</a>
@@ -38,7 +27,7 @@ footer {
             <!-- Navbar Links-->
             <ul class="right hide-on-med-and-down">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#search">Search</a></li>
+                <li class="navbar-search-link"><a href="#search">Search</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#about">About</a></li>
             </ul>
@@ -48,7 +37,7 @@ footer {
         <!-- Links that appear via drop down (side navigation when screen size is small / medium)-->
         <ul class="sidenav" id="navShortCut">
             <li><a href="#home">Home</a></li>
-            <li><a href="#search">Search</a></li>
+            <li class="navbar-search-link"><a href="#search">Search</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="#about">About</a></li>
         </ul>
@@ -61,30 +50,31 @@ footer {
 
         <!-- Begin Search area -->
         <div class="row ">
-            <div class="col s12 m4 l4" id="search" >
-                <p class="center">Enter a keyword to search through our recipes or click on our quicklinks below</p>
-                <input type="text" id="keyword" placeholder="Search" title="Type in a keyword">
-
-                <ul id="recipeQuicklinks">
-                    <li><a href="#" id="ql1">Beef</a></li>
-                    <li><a href="#" id="ql2">Chicken</a></li>
-                    <li><a href="#" id="ql3">Smoothies</a></li>
-
-                    <li><a href="#" id="ql4">Pork</a></li>
-                    <li><a href="#" id="ql5">Vegetarian</a></li>
-
-                    <li><a href="#" id="ql6">Vegan</a></li>
-                    <li><a href="#" id="ql7">Salads</a></li>
-                    <li><a href="#" id="ql8">Sweets</a></li>
-                </ul>
-
-                <button class="btn-floating waves-effect waves-light pulse transparent black-text" id="searchBtn">GO</button>
+            <div class="col s12 m4 l4" id="search">
+                <form action="" method="get" id="searchFormID">
+                    <p class="justified">Enter a keyword to search through our recipes or click on our quicklinks below</p>
+                    <div class="row">
+                        <div class="col s9 input-field">
+                            <input type="text" class="validate" name="search" id="keywordID" placeholder="Search" title="Type in a keyword">
+                        </div>
+                        <div class="col s3" id="searchBtnDiv">
+                            <button class="btn-floating waves-effect waves-light pulse transparent black-text" id="searchBtn">GO</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col s12">
+                        <ul id="recipeQuicklinks">
+                            <!-- quick links list is created in scripts.js file -->
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="col s12 m4 l3 z-depth-z" id="recipe-result">
+            <div class="col s12 m4 l4 z-depth-z" id="recipe-result">
                 result section
             </div>
 
-            <div class="col s12 m4 l3" id="spare">
+            <div class="col s12 m4 l4" id="spare">
                 spare div
             </div>
         </div>
@@ -92,82 +82,26 @@ footer {
 
         <!-- Begin Footer -->
         <footer class="col-12 blue lighten-4 white-text flow-text">
-            <p>Footer</p>         
+            <p>Footer</p>
         </footer>
         <!-- End Footer -->
 
     </div>
     <!-- end container-->
 
-<!--------------------------------------------------- MODAL START ------------------------------------------------------------------------->
-<!-- Modal Structure -->
-<div id="modal1" class="modal" style = "max-height: 90%; top:0px;" >
-  <div class="modal-content">
-    <h4>Recipe</h4>
-    <div id="modRecipeName"></div>
-    <br>
-    <img id="modRecipePic">
-    <br>
-    <table>
-        <thead id = "modTablHead">        
-            <tr>
-              <th>Quantity / Ingredients</th>              
-            </tr>
-        </thead>                
-        <tbody id = "modRecipeIngredients">                   
-        </tbody>            
-    </table>    
-    <br>
-    <div>Email your recipe?</div>
-    <br>
-    <div class="row">
-        <form class="col s12">
-          <div class="row">
-                <div class="input-field col s12">
-                    <input id="modNameInput" type="text" class="validate">
-                    <label for="last_name">Name</label>
-                  </div>              
-              </div>
-            <div class="row">
-                <div class="input-field col s12">
-                  <input id="modEmailInput" type="email" class="validate">
-                  <label for="email">Email</label>
-                </div>
-            </div>
-    </div>
-  </div> 
-  <br>
-  <div class="modal-footer">
-
-    <a id="decIndex" class="btn waves-effect waves-light">
-        <i class="material-icons">arrow_back</i>
-    </a> 
-
-    <a id="incIndex" class="btn waves-effect waves-light">
-    <i class="material-icons">arrow_forward</i>
-    </a> 
-
-    <a href="#!" id="modEmailBtn" class="waves-effect waves-green btn-flat">Email</a>
-    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-
-  </div>
-</div>
-
-<!--------------------------------------------------- MODAL END ------------------------------------------------------------------------->
-<!-- include scripts here -->
+    <!-- include scripts here -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://smtpjs.com/v3/smtp.js"></script> 
     <script type="text/javascript" src="scripts/scripts.js"></script>
     <script type="text/javascript" src="scripts/random_recipe.js"></script>
     <script type="text/javascript" src="scripts/alcoholAPI.js"></script>
+    <script type="text/javascript" src="scripts/keyword-search.js"></script>
     <!-- Compiled and minified JavaScript -->
-   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
         $(document).ready(function() {
             $(".sidenav").sidenav()
         })
     </script>
+
 </body>
 </html>
-<!-- Just another change -->

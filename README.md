@@ -1,93 +1,36 @@
-Project 1
+Project 1 - Hangry Recipe Finder
+Group Members
 
-Application Requirements
+Lachlan Cameron
+Blake Strickland
+Justin Reid
+Linda Hlubi
 
-
-Must use at least two server-side APIs
-
-
-Must use a CSS framework other than Bootstrap
-
-
-Must be interactive (i.e: accept and respond to user input)
+App url:
 
 
-Use at least one new third-party API
+About This App
+It allows users to find full recipes by searching using ingredients, dish names, keywords. Recipes will include features such as the time it will take to prepare as well as how many servings the recipe will yield. The user will also be able to access a wine pairing feature which will recommend great wines to pair with their recipe of choice.  Users are also able to add recipes to their favourites and email them to themselves.  When a user searches and picks any recipe that recipe is automatically saved in a quicklinks section making it easy to access previous searches.  The app uses  3 Api’s Edamam, Spoonacular and …. to obtain its data.
 
+This project features responsive design
 
-Must have a polished UI
+Has responsive layout for:
+* For large, medium and small screens using Materialize
 
+Code Used:
 
-Must meet good quality coding standards
+* J Query
+* CSS
+* HTML
+* JSON
 
+Project Requirements:
 
-Does not use alerts, confirms or prompts (look into modals)
-
-
-Must be deployed to GitHub Pages
-
-
-
-Presentation Requirements
-Use this project presentation template to address the following:
-
-
-Elevator pitch: a one minute description of your application
-
-
-Concept: What is your user story? What was your motivation for development?
-
-
-Process: What were the technologies used? How were tasks and roles broken down and assigned? What challenges did you encounter? What were your successes?
-
-
-Demo: Show your stuff!
-
-
-Directions for Future Development
-
-
-Links to the deployed application and the GitHub repository
-
-
-
-Grading Metrics
-
-
-
-Metric
-Weight
-
-
-
-
-Concept
-10%
-
-
-Design
-20%
-
-
-Functionality
-30%
-
-
-Collaboration
-30%
-
-
-Presentation
-10%
-
-
-
-
-Submission on BCS
-You are required to submit the following:
-
-
-The URL of the deployed application
-
-
-The URL of the GitHub repository
+* Must use at least two server-side APIs
+* Must use a CSS framework other than Bootstrap
+* Must be interactive (i.e: accept and respond to user input)
+* Use at least one new third-party API
+* Must have a polished UI
+* Must meet good quality coding standards
+* Does not use alerts, confirms or prompts (look into modals)
+* Must be deployed to GitHub Pages
