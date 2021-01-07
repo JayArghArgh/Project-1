@@ -21,8 +21,11 @@ function getRecipe(mainIngredient) {
         console.log(response);
         let recipeResult = $('#recipe-result');
         recipeResult.empty();
-        // add the recipe name to the results.
-        console.log(response);
+        //Store response in session storage for use by other functions
+        sessionStorage.setItem("apiResponse" , JSON.stringify(response));
+        let apiResponse = sessionStorage.getItem("apiResponse");
+        apiResponseParsed =  JSON.parse(apiResponse);
+        // add the recipe name to the results.                
         response.hits.forEach(function(hit) {
             let listItem = $('<p>');
             
@@ -42,43 +45,82 @@ $('#searchBtn').click(function (event) {
 });
 
 
+//-------------------------------------------------------------MODAL-------------------------------------------------------------------------//
+
+//Get Modal objects
+let modRecipeNameObj = document.getElementById("modRecipeName");
+let modRecipePicObj = document.getElementById("modRecipePic");
+let modRecipeIngredientsObj = document.getElementById("modRecipeIngredients");
+let modNameObj = document.getElementById("last_name");
+let modEmailObj = document.getElementById("email");
+let decIndexObj = document.getElementById("decIndex");
+let incIndexObj = document.getElementById("incIndex");
+
+// Add modal event listeners with callbacks
 
 // Initialise modal event listener
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.modal');
     var instances = M.Modal.init(elems);
-  });
+});
 
+//Add increment modal data index event listener
+decIndexObj.addEventListener("click", function(){
+    incModalIndex();         
+});
 
-//Get Modal objects
-var modRecipeNameObj = document.getElementById("modRecipeName");
-var modRecipePicObj = document.getElementById("modRecipePic");
-var modRecipeIngredientsObj = document.getElementById("modRecipeIngredients");
-var modEmailObj = document.getElementById("modEmail");
-
+//Add decrement modal data index event listener
+decIndexObj.addEventListener("click", function(){
+    decModalIndex();         
+});
 
 //Add Email event listener for modal
 modEmailObj.addEventListener("click", function(){
-    sendEmail(modEmailObj.textContent,response.hits )         
+
+    if (modEmailObj.value != "undefined"){    
+        sendEmail(modEmailObj.value);
+    }   
+    else{ 
+        alert ("Enter a valid email you twat!")
+    }
+
 });
 
+//Modal functions
 
+//Increment modal index and populate modal
+function incModalIndex(){
 
-function popModal(index){
+    if (modIndex < (apiResponseParsed.hits.length - 1)){
+        modIndex ++;
+        popModal();
+    }
+    
+}
 
-    modRecipeNameObj.textContent = response.hits[index].recipe.label;
-    modRecipePicObj.src = response.hits[index].recipe.image;
-    modRecipeIngredientsObj.textContent = response.hits[index].ingredientLines;  
+//Decrement modal index and populate modal
+function decModalIndex(){
+
+    if (modIndex > 0){
+        modIndex --;
+        popModal();
+    }
+}
+
+//Populate modal function
+function popModal(){
+
+    modRecipeNameObj.textContent = apiResponseParsed.hits[modIndex].recipe.label;
+    modRecipePicObj.src = apiResponseParsed.hits[modIndex].recipe.image;
+    modRecipeIngredientsObj.textContent = apiResponseParsed.hits[modIndex].recipe.ingredientLines;  
    
 }
 
+//-------------------------------------------------------------Send email functions-------------------------------------------------------------------------//
 
 //Send User ingredients vias Gmail SMTP
-function sendEmail(recipient, response) {
-
-    console.log(recipient);
-    console.log(response);
-
+function sendEmail(recipient) {   
+    
 	Email.send({
 	Host: "smtp.gmail.com",
 	Username : "project1monash@gmail.com",
@@ -88,9 +130,9 @@ function sendEmail(recipient, response) {
 	Subject : "Your Recipe",
 	Body : 
 	
-	"Thanks for using our recipe selection tool. Your recipe can be viewed at " + hit.recipe.uri +
+	"Thanks for using our recipe selection tool. Your recipe can be viewed at : " + apiResponseParsed.hits[modIndex].recipe.uri + " " +
 	
-	"Ingredients" +  hit.recipe.ingredientLines
+	"Ingredients : " +  apiResponseParsed.hits[modIndex].recipe.ingredientLines
 		
 	}).then(
 		message => alert("Mail sent successfully - Please check your Junk Folder")
