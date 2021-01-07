@@ -3,9 +3,9 @@
 ## Group Members
 
  * Blake Strickland (AKA The Silent Achiever)
- * Justin Reid (The Glue)
- * Lachlan Cameron (Modal Wrestler & Git Hub Newbie)
- * Linda Hlubi (The Style Queen (or King))
+ * Justin Reid (AKA The Glue)
+ * Lachlan Cameron (AKA Modal Wrestler & Git Hub Newbie)
+ * Linda Hlubi (AKA The Style Queen (or King))
 
 
 ## App url:
