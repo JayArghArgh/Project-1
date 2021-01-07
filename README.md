@@ -28,6 +28,8 @@ Our app uses three Api’s:
 * Edamam
 * Spoonacular
 * SMTP API / library
+### ( These were not our first choice... But hey! They were free!)
+
 
 
 ### Our collaborative effort features a responsive design and layout for all devices.
