@@ -1,28 +1,45 @@
 # Project 1 - Hangry Recipe Finder
+
 ## Group Members
 
  * Blake Strickland (AKA The Silent Achiever)
  * Justin Reid (The Glue)
- * Lachlan Cameron (Modal Wrestler)
+ * Lachlan Cameron (Modal Wrestler & Git Hub Newbie)
  * Linda Hlubi (The Style Queen (or King))
+
 
 ## App url:
 
 
 ## About This App
 
-It allows users to find full recipes by searching using ingredients, dish names, keywords. Recipes will include features such as the time it will take to prepare as well as how many servings the recipe will yield. The user will also be able to access a wine pairing feature which will recommend great wines to pair with their recipe of choice.  Users are also able to add recipes to their favourites and email them to themselves.  When a user searches and picks any recipe that recipe is automatically saved in a quicklinks section making it easy to access previous searches.  The app uses  3 Api’s Edamam, Spoonacular and a SMTP API / library to obtain and send the data the user requires.
+Our web application allows "Hangry Users" to quickly appease their insatiable and selective hunger by utilising our website to search for recipes using key ingredientsearch terms.
 
-## This project features a responsive design and has a responsive layout for:
+Recipes do include information such as ingredients, quantities and a link for the cooking method. 
 
-* For large, medium and small screens and utilises Materilise CSS and JS libraries for formatting and functionality.
+Our faithful followers will also be able to access an automatic wine pairing feature. We don't particularly care if they dont like wine.... We do, and so does anyone that matters! Our users will surely find the best wine / food combinations with just a short click.  
 
-## The type of code Used:
+Users are also able to add recipes to a favourites list, then email the recipe ingredients as well as the recipe method to an email of their choosing.
+
+When a user picks any recipe, that recipe is automatically saved in our quick links section, making it easier for repeat searches. 
+
+Our app uses three Api’s:
+
+* Edamam
+* Spoonacular
+* SMTP API / library
+
+
+### Our collaborative effort features a responsive design and layout for all devices.
+
+
+## The type of code used:
 
 * Java Script
 * CSS
 * HTML
 * JSON
+
 
 ## Javascipt plugins / libraries employed:
 
@@ -30,13 +47,16 @@ It allows users to find full recipes by searching using ingredients, dish names,
 * SMTP.js
 * Materialise.js
 
+
 ## HTTP GET requests
 
 * JSON was utilised as a common data format for when data was transfered in between webservers / API's.
 
+
 ## Persistent Storage
 
 Storing data via session & local web client storage in JSON format is used for data that needed to be persistent.
+
 
 ## Project Requirements:
 
@@ -48,3 +68,6 @@ Storing data via session & local web client storage in JSON format is used for d
 * Must meet good quality coding standards
 * Does not use alerts, confirms or prompts (look into modals)
 * Must be deployed to GitHub Pages
+
+
+
