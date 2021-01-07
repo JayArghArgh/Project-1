@@ -36,7 +36,7 @@ function getRandomRecipe() {
 
         cardContent.append('<h4>Fire Cracker Chicken Recipe</h4><p>This firecracker chicken recipe is chunks of crispy chicken tossed in a sweet and spicy sauce. An easy dinner option that the whole family will love!</p>');
 
-        cardContent.append('<div class ="card-action"><a href ="https://www.dinneratthezoo.com/wprm_print/10393">Instructions</a><a href ="https://www.dinneratthezoo.com/wprm_print/10393">Ingredients</a></div>');
+        cardContent.append("<a class='waves-effect waves-light btn-small modal-trigger' onclick = 'popModal()' href='#modal1'><i class='material-icons left'>email</i>Email</a>");
 
 
         randomCard.append(cardImage);
