@@ -29,6 +29,7 @@ Javascipt plugins / libraries employed:
 * SMTP.js
 * Materialise.js
 
+JSON was utilised as a format for storing data via session & local web client storage and as a common data transfer medium in between the users web client and API's.
 
 Project Requirements:
 
