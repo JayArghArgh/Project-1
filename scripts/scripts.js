@@ -18,11 +18,21 @@ function getRecipe(mainIngredient) {
     }).then(function(response) {
         let recipeResult = $('#recipe-result');
         recipeResult.empty();
+
+        console.log(response);
+
         // add the recipe name to the results.
         response.hits.forEach(function(hit) {
+            let listAnchor = $("<a>");
             let listItem = $('<p>');
+
+            listAnchor.attr("href", hit.recipe.url);
+            listAnchor.attr("class", "recipe-link");
+            listAnchor.attr("id", "")
+            listAnchor.attr("alt", "recipe for " + hit.recipe.label)
             listItem.html(hit.recipe.label);
-            recipeResult.append(listItem);
+            listAnchor.append(listItem)
+            recipeResult.append(listAnchor);
         })
     });
 }
