@@ -71,7 +71,7 @@ function getRecipe(mainIngredient) {
                 
                 cardContent.append(cardTitle);
                 cardImage.append(recipeImage);
-                cardImage.append('<a href ="#" class ="halfway-fab btn-floating pink pulse"><i class="material-icons">favorite</i></a>');
+                cardImage.append('<a href ="#" class ="halfway-fab btn-floating pink pulse"><i class="material-icons" id="' +z + '">favorite</i></a>');
                 
                 cardContent.append('<h4>' + recipeName + '</h4>');
                 
