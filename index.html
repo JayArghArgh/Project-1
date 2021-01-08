@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="./style.css">
+    
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
@@ -44,7 +44,8 @@
         <!-- End Links -->
 
         <!-- Begin Random Recipes -->
-        <div class="row" id="random-recipes">
+        <div class="row">
+            <div class="col-container" id="random-recipes"></div>
         </div>
         <!-- End Random Recipes -->
 
@@ -88,15 +89,68 @@
 
     </div>
     <!-- end container-->
-
-    <!-- include scripts here -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="scripts/scripts.js"></script>
-    <script type="text/javascript" src="scripts/random_recipe.js"></script>
-    <script type="text/javascript" src="scripts/alcoholAPI.js"></script>
-    <script type="text/javascript" src="scripts/keyword-search.js"></script>
-<!--    <script type="text/javascript" src="scripts/addFavourite.js"></script>-->
-    <!-- Compiled and minified JavaScript -->
+    <!--------------------------------------------------- MODAL START ------------------------------------------------------------------------->
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal" style = "max-height: 90%; top:0px;" >
+        <div class="modal-content">
+        <h4>Recipe</h4>
+        <div id="modRecipeName"></div>
+        <br>
+        <img id="modRecipePic">
+        <br>
+        <table>
+            <thead id = "modTablHead">        
+                <tr>
+                    <th>Quantity / Ingredients</th>              
+                </tr>
+            </thead>                
+            <tbody id = "modRecipeIngredients">                   
+            </tbody>            
+        </table>    
+        <br>
+        <div>Email your recipe?</div>
+        <br>
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="modNameInput" type="text" class="validate">
+                        <label for="last_name">Name</label>
+                        </div>              
+                    </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="modEmailInput" type="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+        </div>
+        </div> 
+        <br>
+        <div class="modal-footer">
+        <a id="decIndex" class="btn waves-effect waves-light">
+            <i class="material-icons">arrow_back</i>
+        </a> 
+        <a id="incIndex" class="btn waves-effect waves-light">
+        <i class="material-icons">arrow_forward</i>
+        </a> 
+        <a href="#!" id="modEmailBtn" class="waves-effect waves-green btn-flat">Email</a>
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+    <!--------------------------------------------------- MODAL END ------------------------------------------------------------------------->
+  <!-- include scripts here -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script src="https://smtpjs.com/v3/smtp.js"></script> 
+      <script type="text/javascript" src="scripts/email.js"></script>
+      <script type="text/javascript" src="scripts/modal.js"></script>
+      <script type="text/javascript" src="scripts/scripts.js"></script>
+      <script type="text/javascript" src="scripts/random_recipe.js"></script>
+      <script type="text/javascript" src="scripts/alcoholAPI.js"></script>
+      <script type="text/javascript" src="scripts/keyword-search.js"></script>
+      <!--    <script type="text/javascript" src="scripts/addFavourite.js"></script>-->
+      <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
         $(document).ready(function() {

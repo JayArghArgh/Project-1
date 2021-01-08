@@ -17,14 +17,26 @@ function getRandomRecipe() {
         url: apiUrl,
         method: "GET"
     }).then(function(response) {
+        let z = 0;
         let recipe = response.hits[randomRecipe];
+        let recipeName = recipe.recipe.label;
         let displayRow = $('#random-recipes');
         let randomColumn = $('<div>');
         let randomCard = $('<div>').attr('class', 'card');
+        // new code adding data-name and data-index below------------------start
+        randomCard.attr("data-index", z);
+        randomCard.attr("data-name", recipeName);
+        randomCard.attr("id", "card-" + z);
+        // data-name and data-index finish---------------------------------finish
         let cardImage = $('<div>');
         let recipeImage = $('<img>').attr('src', recipe.recipe.image);
         let cardContent = $('<div>');
         let cardTitle = $('<span>').attr('class', 'card-title');
+        // new code below neeed to grab recipe summary later-----------------------start
+        let recipeURL = recipe.recipe.url;
+        // new code for recipe summary finish-----------------------------------finish
+
+        console.log(recipeURL);
 
         recipeImage.attr("width", "100%");
 
@@ -34,19 +46,20 @@ function getRandomRecipe() {
         cardImage.append(recipeImage);
         cardImage.append('<a href ="#" class ="halfway-fab btn-floating pink pulse"><i class="material-icons">favorite</i></a>');
 
-        cardContent.append('<h4>Fire Cracker Chicken Recipe</h4><p>This firecracker chicken recipe is chunks of crispy chicken tossed in a sweet and spicy sauce. An easy dinner option that the whole family will love!</p>');
-
+        cardContent.append('<h4>' + recipeName + '</h4>');
+        
         cardContent.append("<a class='waves-effect waves-light btn-small modal-trigger' onclick = 'popModal()' href='#modal1'><i class='material-icons left'>email</i>Email</a>");
-
-
+        
+        
         randomCard.append(cardImage);
         randomCard.append(cardContent);
-
-        randomColumn.attr('class', 'col s12 l6');
+        
+        randomColumn.attr('class', 'col s12 m6 col-cards');
         randomColumn.append(randomCard);
         displayRow.append(randomColumn);
     });
-}
+};
+ 
 
 // Return a couple rando's.
 let i = 0;
