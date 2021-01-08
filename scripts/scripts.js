@@ -11,10 +11,9 @@ function getRecipe(mainIngredient) {
     // Gets a bunch of recipes matching the keyword searched.
     let apiUrl = API_PATH;
     let apiUrlExtension = "?q=" + mainIngredient;
-    // change to number of recipes the api is returning in it's array (from default of 10 to 8); ------start
+    // change to number of recipes the api is returning in it's array (from default of 10 to 8);
     let numberOfRecipes = "&to=" + 8;  // change number of recipes returned here if need be
     apiUrl += apiUrlExtension + numberOfRecipes + API_APP_ID + API_APP_KEY;
-    // change to number of recipes the api is returning in it's array (from default of 10 to 8); ------end
     
     // The Ajax query itself.
     $.ajax({
@@ -24,31 +23,28 @@ function getRecipe(mainIngredient) {
         let recipeResult = $('#recipe-result');
         recipeResult.empty();
 
-        //  clear the current cards from the div --- start
+        //  clear the current cards from the div
         $('#random-recipes').empty();
-        //  clear the current cards from the div --- end
 
         //Store response in session storage for use by other functions
         sessionStorage.setItem("apiResponse" , JSON.stringify(response));
         let apiResponse = sessionStorage.getItem("apiResponse");
         apiResponseParsed =  JSON.parse(apiResponse);
 
-        // add an index number for each card generated =----- start
+        // add an index number for each card generated
         let z=0;
-        // add an index number for each card generated =----- end
 
         // add the recipe name to the results.
         response.hits.forEach(function(hit) {
             let listAnchor = $("<a>");
             let listItem = $('<p>');
 
-            // some variable assignments added ------------ start
+            // some variable assignments added
             let recipeURL = hit.recipe.url;
             let recipePhoto = hit.recipe.image;
             let recipeName = hit.recipe.label;
             
             listAnchor.attr("href", recipeURL);
-            // some variable assignments added ------------ end
             listAnchor.attr("class", "recipe-link");
             listAnchor.attr("id", "")
             listAnchor.attr("alt", "recipe for " + hit.recipe.label)
@@ -56,9 +52,7 @@ function getRecipe(mainIngredient) {
             listAnchor.append(listItem)
             recipeResult.append(listAnchor);
 
-            // moved generate card into it's own function ------ start
-            
-            
+            // Generates display card.
             function generateCard() {
                 let displayRow = $('#random-recipes');
                 let newColumn = $('<div>');
@@ -93,11 +87,9 @@ function getRecipe(mainIngredient) {
                 
                 z++;
             }
+          // Generate the card.
             generateCard();
-
-            // moved generate card into it's own function ------ end
 
         });
     });
 };
-        
