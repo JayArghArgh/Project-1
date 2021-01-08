@@ -11,7 +11,10 @@ function getRecipe(mainIngredient) {
     // Gets a bunch of recipes matching the keyword searched.
     let apiUrl = API_PATH;
     let apiUrlExtension = "?q=" + mainIngredient;
-    apiUrl += apiUrlExtension + API_APP_ID + API_APP_KEY;
+    // change to number of recipes the api is returning in it's array (from default of 10 to 8); ------start
+    let numberOfRecipes = "&to=" + 8;  // change number of recipes returned here if need be
+    apiUrl += apiUrlExtension + numberOfRecipes + API_APP_ID + API_APP_KEY;
+    // change to number of recipes the api is returning in it's array (from default of 10 to 8); ------end
     
     // The Ajax query itself.
     $.ajax({
@@ -21,127 +24,80 @@ function getRecipe(mainIngredient) {
         let recipeResult = $('#recipe-result');
         recipeResult.empty();
 
+        //  clear the current cards from the div --- start
+        $('#random-recipes').empty();
+        //  clear the current cards from the div --- end
+
         //Store response in session storage for use by other functions
         sessionStorage.setItem("apiResponse" , JSON.stringify(response));
         let apiResponse = sessionStorage.getItem("apiResponse");
         apiResponseParsed =  JSON.parse(apiResponse);
+
+        // add an index number for each card generated =----- start
+        let z=0;
+        // add an index number for each card generated =----- end
+
         // add the recipe name to the results.
         response.hits.forEach(function(hit) {
             let listAnchor = $("<a>");
             let listItem = $('<p>');
 
-            listAnchor.attr("href", hit.recipe.url);
+            // some variable assignments added ------------ start
+            let recipeURL = hit.recipe.url;
+            let recipePhoto = hit.recipe.image;
+            let recipeName = hit.recipe.label;
+            
+            listAnchor.attr("href", recipeURL);
+            // some variable assignments added ------------ end
             listAnchor.attr("class", "recipe-link");
             listAnchor.attr("id", "")
             listAnchor.attr("alt", "recipe for " + hit.recipe.label)
             listItem.html(hit.recipe.label);
             listAnchor.append(listItem)
             recipeResult.append(listAnchor);
-        })
+
+            // moved generate card into it's own function ------ start
+            
+            
+            function generateCard() {
+                let displayRow = $('#random-recipes');
+                let newColumn = $('<div>');
+                let newCard = $('<div>').attr('class', 'card card-height');
+                newCard.attr("data-name", recipeName);
+                newCard.attr("data-index", z);
+                newCard.attr("id", "card-" + z);
+                let cardImage = $('<div>');
+                let recipeImage = $('<img>').attr('src', recipePhoto);
+                let cardContent = $('<div>');
+                let cardTitle = $('<span>').attr('class', 'card-title');
+                
+                recipeImage.attr("width", "100%");
+                
+                cardTitle.html("<quote>" + recipeName + "</quote>");
+                
+                cardContent.append(cardTitle);
+                cardImage.append(recipeImage);
+                cardImage.append('<a href ="#" class ="halfway-fab btn-floating pink pulse"><i class="material-icons">favorite</i></a>');
+                
+                cardContent.append('<h4>' + recipeName + '</h4>');
+                
+                cardContent.append("<a class='waves-effect waves-light btn-small modal-trigger' onclick = 'popModal()' href='#modal1'><i class='material-icons left'>email</i>Email</a>");
+                
+                
+                newCard.append(cardImage);
+                newCard.append(cardContent);
+                
+                newColumn.attr('class', 'col s12 m6 col-cards');
+                newColumn.append(newCard);
+                displayRow.append(newColumn);
+                
+                z++;
+            }
+            generateCard();
+
+            // moved generate card into it's own function ------ end
+
+        });
     });
-}
-
-
-//-------------------------------------------------------------MODAL-------------------------------------------------------------------------//
-//Get Modal objects
-let modRecipeNameObj = document.getElementById("modRecipeName");
-let modRecipePicObj = document.getElementById("modRecipePic");
-let modRecipeIngredientsObj = document.getElementById("modRecipeIngredients");
-let modNameInputObj = document.getElementById("modNameInput");
-let modEmailInputObj = document.getElementById ("modEmailInput");
-let modEmailBtnObj = document.getElementById("modEmailBtn");
-let decIndexObj = document.getElementById("decIndex");
-let incIndexObj = document.getElementById("incIndex");
-
-// Add modal event listeners with callbacks
-// Initialise modal event listener
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.modal');
-    var instances = M.Modal.init(elems);
-});
-
-//Add increment modal data index event listener
-incIndexObj.addEventListener("click", function(){
-    incModalIndex();         
-});
-
-//Add decrement modal data index event listener
-decIndexObj.addEventListener("click", function(){
-    decModalIndex();         
-});
-
-//Add Email event listener for modal
-modEmailBtnObj.addEventListener("click", function(){
-
-    if (modEmailBtnObj.value !== null || modEmailBtnObj.value !== undefined){    
-        sendEmail();
-    }   
-    else{ 
-        alert ("Enter a valid email you twat!")
-    }
-});
-
-//Modal functions
-
-//Increment modal index and populate modal
-function incModalIndex(){
-   if (modIndex < (apiResponseParsed.hits.length - 1)){
-        modIndex ++;
-        popModal();
-    }
-}
-
-//Decrement modal index and populate modal
-function decModalIndex(){
-    if (modIndex > 0){
-        modIndex --;
-        popModal();
-    }
-}
-
-//Populate modal function
-function popModal(){
-
-    //Add recipe heading from api
-    modRecipeNameObj.textContent = apiResponseParsed.hits[modIndex].recipe.label;
-    //Add recipe image from api
-    modRecipePicObj.src = apiResponseParsed.hits[modIndex].recipe.image;
-    //Get table objext from id
-    let table = document.getElementById("modRecipeIngredients");
-    //If table already created delete
-    let totalRowCount = table.rows.length
+};
         
-    document.getElementsByTagName("tbody")[0].remove();
-    let tableBody = document.createElement('tbody');
-    tableBody.setAttribute("id", "modRecipeIngredients");
-    document.getElementById("modTablHead").appendChild(tableBody);
-
-    //Loop through ingredients and make table from current ingredients list
-    for (let x=0; x < apiResponseParsed.hits[modIndex].recipe.ingredients.length; x++) { 
-        let row = tableBody.insertRow(x);
-        let cell1 = row.insertCell(0);
-        cell1.innerHTML = apiResponseParsed.hits[modIndex].recipe.ingredients[x].text;
-    }
-}
-//-------------------------------------------------------------Send email functions-------------------------------------------------------------------------//
-
-//Send User ingredients vias Gmail SMTP
-function sendEmail() {   
-    
-	Email.send({
-	Host: "smtp.gmail.com",
-	Username : "project1monash@gmail.com",
-	Password : "epakqeohwuvlpxdm",
-	To : modEmailInputObj.value,
-	From : "project1monash@gmail.com",
-	Subject : "Your Recipe",
-	Body : 
-	
-	"Hi " + modNameInputObj.value + "! Thanks for using our recipe selection tool. Your recipe can be viewed via the link @  : " + apiResponseParsed.hits[modIndex].recipe.uri + " " +
-	
-	"Ingredients : " +  apiResponseParsed.hits[modIndex].recipe.ingredientLines
-		
-	}).then(
-		message => alert("Mail sent successfully - Please check your Junk Folder")
-	);
-}
