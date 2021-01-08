@@ -76,7 +76,7 @@ function getRecipe(mainIngredient) {
                 cardContent.append('<h4>' + recipeName + '</h4>');
                 
                 cardContent.append("<a class='waves-effect waves-light btn-small modal-trigger' onclick = 'popModal()' href='#modal1'><i class='material-icons left'>email</i>Email</a>");
-                
+               
                 
                 newCard.append(cardImage);
                 newCard.append(cardContent);
