@@ -193,7 +193,6 @@
 
         <!-- Begin Footer -->
         <footer class="page-footer white">
-            
             <div class="row">
                 <div class="col s12 m12 l12">
                     <h3 class=" center black-text ">HANGRY</h3>
@@ -205,8 +204,8 @@
                         <a class="a2a_button_email"></a>
                         <a class="a2a_button_pinterest"></a>
                     </div>
-
                     <!-- AddTo Social Any End -->
+
                 </div>
             </div>
         </footer>
@@ -218,56 +217,62 @@
         <!-- End Footer -->
     </div>
     <!-- end container-->
-    <!--------------------------------------------------- MODAL START ------------------------------------------------------------------------->
+
+    <!-- Modal Begin -->
     <!-- Modal Structure -->
     <div id="modal1" class="modal" style = "max-height: 90%; top:0px;" >
         <div class="modal-content">
-        <h4>Recipe</h4>
-        <div id="modRecipeName"></div>
-        <br>
-        <img id="modRecipePic">
-        <br>
-        <table>
-            <thead id = "modTablHead">        
-                <tr>
-                    <th>Quantity / Ingredients</th>              
-                </tr>
-            </thead>                
-            <tbody id = "modRecipeIngredients">                   
-            </tbody>            
-        </table>    
-        <br>
-        <div>Email your recipe?</div>
-        <br>
-        <div class="row">
-            <form class="col s12">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="modNameInput" type="text" class="validate">
-                        <label for="last_name">Name</label>
-                        </div>              
+            <h4>Recipe</h4>
+            <div id="modRecipeName"></div>
+            <img id="modRecipePic">
+            <table>
+                <thead id="modTablHead">
+                    <tr>
+                        <th>Quantity / Ingredients</th>
+                    </tr>
+                </thead>
+                <tbody id="modRecipeIngredients">
+                </tbody>
+            </table>
+            <div>
+                Email your recipe?
+            </div>
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="modNameInput" type="text" class="validate">
+                            <label for="modNameInput">Name</label>
+                        </div>
                     </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="modEmailInput" type="email" class="validate">
-                        <label for="email">Email</label>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="modEmailInput" type="email" class="validate">
+                            <label for="modEmailInput">Email</label>
+                        </div>
                     </div>
-                </div>
+                </form>
+            </div>
         </div>
-        </div> 
-        <br>
         <div class="modal-footer">
-        <a id="decIndex" class="btn waves-effect waves-light black">
-            <i class="material-icons">arrow_back</i>
-        </a> 
-        <a id="incIndex" class="btn waves-effect waves-light black">
-        <i class="material-icons">arrow_forward</i>
-        </a> 
-        <a href="#!" id="modEmailBtn" class="waves-effect waves-effect btn-flat black"><i class="material-icons">email</i></a>
-        <a href="#!" class="modal-close waves-effect waves-effect btn-flat black"><i class="material-icons">close</i></a>
+            <!-- Modal specific nav links start -->
+            <a id="decIndex" class="btn waves-effect waves-light black">
+                <i class="material-icons">arrow_back</i>
+            </a>
+            <a id="incIndex" class="btn waves-effect waves-light black">
+                <i class="material-icons">arrow_forward</i>
+            </a>
+            <a href="#!" id="modEmailBtn" class="waves-effect waves-effect btn-flat black">
+                <i class="material-icons">email</i>
+            </a>
+            <a href="#!" class="modal-close waves-effect waves-effect btn-flat black">
+                <i class="material-icons">close</i>
+            </a>
+            <!-- Modal specific nav links end -->
         </div>
     </div>
-    <!--------------------------------------------------- MODAL END ------------------------------------------------------------------------->
+    <!-- Modal End -->
+
     <!-- include scripts here -->
     <script async src="https://static.addtoany.com/menu/page.js"></script>
     <!-- Compiled and minified JavaScript -->
@@ -281,8 +286,8 @@
     <script type="text/javascript" src="scripts/random_recipe.js"></script>
     <script type="text/javascript" src="scripts/alcoholAPI.js"></script>
     <script type="text/javascript" src="scripts/keyword-search.js"></script>
-        <script type="text/javascript" src="scripts/favouriteAdd.js"></script>
-        <script type="text/javascript" src="scripts/mainPage.js"></script>
+    <script type="text/javascript" src="scripts/favouriteAdd.js"></script>
+    <script type="text/javascript" src="scripts/mainPage.js"></script>
 
     <script>
         $(document).ready(function() {
