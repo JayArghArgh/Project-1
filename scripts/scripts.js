@@ -56,9 +56,8 @@ function getRecipe(mainIngredient) {
             function generateCard() {
                 let displayRow = $('#random-recipes');
                 let newColumn = $('<div>');
-                // added new class for styling purposes ------- start
+                // Add new class for styling purposes.
                 let newCard = $('<div>').attr('class', 'card recipe-card');
-                // added new class for styling purposes ------- end
                 newCard.attr("data-name", recipeName);
                 newCard.attr("data-index", z);
                 newCard.attr("id", "card-" + z);
@@ -68,27 +67,22 @@ function getRecipe(mainIngredient) {
                 let cardTitle = $('<span>').attr('class', 'card-title');
                 
                 recipeImage.attr("width", "100%");
-                // changed text content below from recipeName to the search query-----------start
                 cardTitle.html("<quote>" + mainIngredient + "</quote>");
-                // changed text content above from recipeName to the search query-----------end
                 
                 cardContent.append(cardTitle);
                 cardImage.append(recipeImage);
-                // added inline style to the heart btn to override the Materialize style setting for 'bottom' plus also moved Email button to here to be able to position card elements plus added style -------- start
+                // Added inline style to the heart btn to override the Materialize style setting for 'bottom' plus also moved Email button to here to be able to position card elements plus added style.
                 cardImage.append('<a href ="#" class ="halfway-fab btn-floating pink pulse" style="bottom:0.5rem;"><i class="material-icons">favorite</i></a>');
                 cardImage.append("<a class='waves-effect waves-light btn-small modal-trigger' style='position:absolute; bottom:0; left:0; display:inline-block;' onclick = 'popModal()' href='#modal1'><i class='material-icons left'>email</i>Email</a>");
-                // added inline style to the heart btn to override the Materialize style setting for 'bottom' plus also moved Email button to here to be able to position card elements plus added style -------- end
                 
                 cardContent.append('<h4>' + recipeName + '</h4>');
-                
-                
+               
                 
                 newCard.append(cardImage);
                 newCard.append(cardContent);
                 
-                // added two helper classes to assist with layout ----- start
+                // Added two helper classes to assist with layout.
                 newColumn.attr('class', 'col s12 m6 col-cards d-flex justify-center');
-                // added two helper classes to assist with layout ----- end
                 newColumn.append(newCard);
                 displayRow.append(newColumn);
                 
