@@ -62,6 +62,7 @@
             </div>
         </div>
         <!--End Tag-->
+
         <!--Start Feature recipe-->
         <div class="row">
             <div class="col s12 m5 l5"><img width="550" src="./images/gnocchi.webp"></div>
@@ -82,6 +83,43 @@
                 <!-- AddTo Social Any End -->
         </div>  
         <!--End Feature recipe-->  
+
+<!-- Begin Search area -->
+<div class="row" id="search-and-results"> <!-- added id -->
+    <div class="col s12 m4 l4" id="search">
+        <form action="" method="get" id="searchFormID">
+            <h3 class="justified">Search Our Recipes Here</h3>
+            <div class="row">
+                <div class="col s9 input-field">
+                    <input type="text" class="validate" name="search" id="keywordID" placeholder="Paella" title="Type in a keyword">
+                </div>
+                <div class="col s3" id="searchBtnDiv">
+                    <button class="btn-floating waves-effect waves-light pulse black text-lighten-4" id="searchBtn"><i class="material-icons">search</i></button>
+                    
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col s12">
+                <ul id="recipeQuicklinks">
+                    <!-- quick links list is created in scripts.js file -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m4 l4 z-depth-z" id="recipe-result">
+        <br><br>  <br><br> 
+        <img class="materialboxed" width="900" src="./images/feast.jpg">   
+    </div>
+
+    <div class="col s12 m4 l4" id="spare">
+         
+    </div>    
+    </div>
+</div>
+<!-- End Search Area -->
+
+
         <!-- Begin Random Recipes -->
         <div class="row" id="random-recipes" ></div> <!-- neatened up-->
         <!-- End Random Recipes -->
@@ -93,40 +131,7 @@
     </div>
 </div>
 <!--Website name end-->
-        <!-- Begin Search area -->
-        <div class="row" id="search-and-results"> <!-- added id -->
-            <div class="col s12 m4 l4" id="search">
-                <form action="" method="get" id="searchFormID">
-                    <h3 class="justified">Search Our Recipes Here</h3>
-                    <div class="row">
-                        <div class="col s9 input-field">
-                            <input type="text" class="validate" name="search" id="keywordID" placeholder="Paella" title="Type in a keyword">
-                        </div>
-                        <div class="col s3" id="searchBtnDiv">
-                            <button class="btn-floating waves-effect waves-light pulse black text-lighten-4" id="searchBtn"><i class="material-icons">search</i></button>
-                            
-                        </div>
-                    </div>
-                </form>
-                <div class="row">
-                    <div class="col s12">
-                        <ul id="recipeQuicklinks">
-                            <!-- quick links list is created in scripts.js file -->
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m4 l4 z-depth-z" id="recipe-result">
-                <br><br>  <br><br> 
-                <img class="materialboxed" width="900" src="./images/feast.jpg">   
-            </div>
-
-            <div class="col s12 m4 l4" id="spare">
-                 
-            </div>    
-            </div>
-        </div>
-        <!-- End Search Area -->
+        
         <!--Start Tag line-->
         <div class="row">
             <div class="col s12 m12 l12 center">
