@@ -1,5 +1,5 @@
 "use strict";
-console.log("=== Loaded viewFavourites.js ===");
+console.log("=== Loaded mainPage.js ===");
 // Declare the part of the URL here that is going to be used to route the user
 const RECIPE = '?recipe';
 const FAV = '?fav';
