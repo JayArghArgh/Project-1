@@ -68,6 +68,8 @@ if (storedFavourites) {
 $('#random-recipes').click(function (event) {
     event.preventDefault();
     let favouriteItem = event.target;
-    console.log(favouriteItem.getAttribute('id'));
-    updateFavourites(favouriteItem.getAttribute('id'));
+    if (favouriteItem.getAttribute('class') && favouriteItem.getAttribute('class').includes('fav')) {
+        console.log(favouriteItem.getAttribute('id'));
+        updateFavourites(favouriteItem.getAttribute('id'));
+    }
 });

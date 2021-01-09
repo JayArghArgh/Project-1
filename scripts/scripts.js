@@ -73,7 +73,7 @@ function getRecipe(mainIngredient) {
                 cardImage.append(recipeImage);
 
                 // Added inline style to the heart btn to override the Materialize style setting for 'bottom' plus also moved Email button to here to be able to position card elements plus added style.
-                cardImage.append('<a href ="#" class ="halfway-fab btn-floating pink pulse" style="bottom:0.5rem;"><i class="material-icons" id="'+ z + '">favorite</i></a>');
+                cardImage.append('<a href ="#" class ="halfway-fab btn-floating pink pulse" style="bottom:0.5rem;"><i class="material-icons fav" id="'+ z + '">favorite</i></a>');
                 cardImage.append("<a class='waves-effect waves-light btn-small modal-trigger' style='position:absolute; bottom:0; left:0; display:inline-block;' onclick = 'popModal()' href='#modal1'><i class='material-icons left'>email</i>Email</a>");
                 
                 cardContent.append('<h4>' + recipeName + '</h4>');
