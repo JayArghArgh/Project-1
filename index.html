@@ -22,12 +22,25 @@
         
         <nav class="col s12 m12 l12 nav-wrapper white">
             <a href ="#" class="brand-logo left black-text navbar-heading"><i class="large material-icons">local_dining</i>Hangry?</a></a>
-            <a href ="#" class="sidenav-trigger right black-text hide-on-med-and-up" data-target="navShortCut"><i class="material-icons">menu</i>
-            
-            <!-- Navbar Links-->
+            <a href ="#" class="sidenav-trigger right black-text hide-on-med-and-up" data-target="navShortCut"><i class="material-icons">menu</i></a>
+           
+            <div class="right" style="width: 28%; margin-left: 30px;">
+                <form action="" method="get" id="searchFormID">
+                    <div class="row">
+                        <div class="col s9 input-field">
+                            <input type="text" class="validate" name="search" id="keywordID" placeholder="Paella" title="Type in a keyword">
+                        </div>
+                        <div class="col s3" id="searchBtnDiv">
+                            <button class="btn-floating waves-effect waves-light pulse black text-lighten-4 btn-small" id="searchBtn"><i class="material-icons" style="bottom: 1px;">search</i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>  
+                            
+        <!-- Navbar Links-->
             <ul class="right hide-on-small-and-down">
                 <li><a href="#home" class="black-text">Home</a></li>
-                <li class="navbar-search-link"><a href="#search" class="black-text">Search</a></li>
+                <!-- <li class="navbar-search-link"><a href="#search" class="black-text">Search</a></li> -->
                 <li><a href="#contact" class="black-text">Favorites</a></li>
                 <li><a href="./About.html" class="black-text">About</a></li>
             </ul>
@@ -37,7 +50,7 @@
         <!-- Links that appear via drop down (side navigation when screen size is small / medium)-->
         <ul class="sidenav" id="navShortCut">
             <li><a href="#home">Home</a></li>
-            <li class="navbar-search-link"><a href="#search">Search</a></li>
+            <!-- <li class="navbar-search-link"><a href="#search">Search</a></li> -->
             <li><a href="#contact">Favorites</a></li>
             <li><a href="./About.html">About</a></li>
         </ul>
