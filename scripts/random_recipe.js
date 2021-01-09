@@ -1,4 +1,5 @@
 "use strict";
+console.log("=== Loaded random_recipe.js ===");
 const MAX_RANDOMS = 2;
 const KEYWORDS = ['beef', 'chicken', 'pork', 'vegetarian', 'smoothies', 'vegan', 'salad', 'dessert'];
 
@@ -63,15 +64,10 @@ function getRandomRecipe() {
         // added two helper classes to assist with layout ----- start
         randomColumn.attr('class', 'col s12 m6 col-cards d-flex justify-center');
         // added two helper classes to assist with layout ----- end
+
         randomColumn.append(randomCard);
         displayRow.append(randomColumn);
     });
 };
- 
 
-// Return a couple rando's.
-let i = 0;
-while (i < MAX_RANDOMS) {
-    getRandomRecipe();
-    i++;
-}
+
