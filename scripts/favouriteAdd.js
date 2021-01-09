@@ -4,6 +4,7 @@ console.log("=== Loaded addFavourites.js ===");
 // Check for favourites. If favourites load them.
 let storedFavourites = JSON.parse(localStorage.getItem("favourites"));
 let userFavourites = [];
+let recipeLink = "./index.html?recipe=";
 
 function updateFavourites(recipeItem) {
     // Add a new favourite and update local storage.
@@ -39,10 +40,9 @@ function viewFavourites() {
         favReturnLink = $('<a>',{
             text: favItem,
             title: 'Your fav',
-            href: favItem
+            href: recipeLink + favItem.split("#")[1]
         });
 
-        console.log(favReturnLink);
         tempTr = $('<tr>');
         tempTd = $('<td>');
 
@@ -61,7 +61,11 @@ function viewFavourites() {
 
 
 function viewFavourite(favId) {
-
+    // View a single recipe.
+    // Set required variables
+    let favReturn;
+    favReturn = "henlo " + favId;
+    return favReturn;
 }
 
 // If favourites, initialise them.
@@ -70,11 +74,10 @@ if (storedFavourites) {
 }
 
 // Listen for clicks to favourite button.
-$('#random-recipes').click(function (event) {
+$('#fav-add').click(function (event) {
     event.preventDefault();
     let favouriteItem = event.target;
-    if (favouriteItem.getAttribute('class') && favouriteItem.getAttribute('class').includes('fav-add')) {
-        console.log(favouriteItem.getAttribute('id'));
+    if (favouriteItem.getAttribute('class').includes('fav-add')) {
         updateFavourites(favouriteItem.getAttribute('id'));
     }
 });

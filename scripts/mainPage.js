@@ -25,7 +25,7 @@ if (urlSearch) {
     // Display a specific recipe.
     if (urlSearch[0] === RECIPE ) {
         workingDiv.empty();
-        workingDiv.html("we're going to run the script <b>displaySingleRecipe.js</b> here");
+        workingDiv.append(viewFavourite(urlSearch[1]));
 
     // Display the users favorites.
     } else if (urlSearch[0] === FAV) {
