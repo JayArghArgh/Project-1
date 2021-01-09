@@ -1,12 +1,10 @@
 /* STYLESHEET */
 /* style.css */ 
 
-
 .navbar-heading {
     white-space: nowrap;
     margin-left: 3%;
 }
-
 
 ul {
     list-style: none;
@@ -26,6 +24,11 @@ h4 {
 
 #searchBtnDiv {
     padding: 0;
+}
+
+.v-pad-more {
+    padding-top: 18px;
+    padding-bottom: 18px;
 }
 
 .keywords-list-item {
@@ -96,6 +99,23 @@ footer {
     margin-right: 5%;    
 }
 
+.tag-line {
+    border: 1px solid rgb(37, 36, 36);
+}
+
+.collage-image {
+    object-fit: cover;
+    width: 100%;
+    height: 350px;
+    padding: 0;
+    margin: 0;
+}
+
+.display-image {
+    object-fit: cover;
+    width: 100%;
+    height: 500px;
+}
 
 /* Media Queries */
 
