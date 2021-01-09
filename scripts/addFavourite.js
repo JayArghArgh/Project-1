@@ -8,7 +8,7 @@ let userFavourites = [];
 function updateFavourites(recipeItem) {
     // Add a new favourite and update local storage.
     console.log()
-    var favouriteItem = apiResponseParsed.hits[recipeItem].recipe.uri;
+    let favouriteItem = apiResponseParsed.hits[recipeItem].recipe.uri;
     if (!userFavourites.includes(favouriteItem)) {
         // only do the updates if the item does not exist in the favourites array already.
         userFavourites.push(favouriteItem);
@@ -25,5 +25,6 @@ if (storedFavourites) {
 $('#random-recipes').click(function (event) {
     event.preventDefault();
     let favouriteItem = event.target;
+    console.log(favouriteItem.getAttribute('id'));
     updateFavourites(favouriteItem.getAttribute('id'));
 });
