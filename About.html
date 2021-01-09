@@ -21,16 +21,15 @@
         <!-- Begin Main Nav -->
         
         <nav class="col s12 m12 l12 nav-wrapper white">
-            <a href ="#" class="brand-logo left black-text"><i class="large material-icons">local_dining</i>An Online Recipe Book</a>
-            <a href ="#" class="sidenav-trigger right black-text" data-target="navShortCut">
-            <i class="material-icons">menu</i>
-            </a>
+            <a href ="#" class="brand-logo left black-text navbar-heading"><i class="large material-icons">local_dining</i>Hangry?</a></a>
+            <a href ="#" class="sidenav-trigger right black-text hide-on-med-and-up" data-target="navShortCut"><i class="material-icons">menu</i>
+                
             <!-- Navbar Links-->
-            <ul class="right hide-on-med-and-down">
+            <ul class="right hide-on-small-and-down">
                 <li><a href="./index.html" class="black-text">Home</a></li>
-                <li class="navbar-search-link" class="black-text"><a href="#search">Search</a></li>
+                <li class="navbar-search-link"><a href="./index.html#search" class="black-text">Search</a></li>
                 <li><a href="#contact" class="black-text">Favorites</a></li>
-                <li><a href="./About.html" class="black-text">About</a></li>
+                <li><a href="#about" class="black-text">About</a></li>
             </ul>
         </nav>
         <!-- End Main Nav -->
@@ -38,9 +37,9 @@
         <!-- Links that appear via drop down (side navigation when screen size is small / medium)-->
         <ul class="sidenav" id="navShortCut">
             <li><a href="./index.html">Home</a></li>
-            <li class="navbar-search-link"><a href="#search">Search</a></li>
+            <li class="navbar-search-link"><a href="./index.html#search">Search</a></li>
             <li><a href="#contact">Favorites</a></li>
-            <li><a href="./About.html">About</a></li>
+            <li><a href="#about">About</a></li>
         </ul>
         <!-- End Links -->
         <!--Start About us-->
@@ -112,11 +111,11 @@
           </div>
              <!-- AddTo Social BEGIN -->
               
-<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-    <a class="a2a_button_facebook"></a>
-    <a class="a2a_button_twitter"></a>
-    <a class="a2a_button_email"></a>
-    <a class="a2a_button_pinterest"></a>
+    <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+        <a class="a2a_button_facebook"></a>
+        <a class="a2a_button_twitter"></a>
+        <a class="a2a_button_email"></a>
+        <a class="a2a_button_pinterest"></a>
     </div>
 
     <!-- AddTo Social Any End -->
@@ -130,8 +129,19 @@
         </div>
     <!-- End Footer -->
 
-  </div>
-  <!-- include scripts here -->
-  <script async src="https://static.addtoany.com/menu/page.js"></script>
+    </div>
+    
+    <!-- include scripts here -->
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Initialize the Materialize sidenav plugin -->
+    <script>
+    $(document).ready(function() {
+        $(".sidenav").sidenav()
+    })
+    </script>
+
 </body>
 </html>

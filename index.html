@@ -21,14 +21,13 @@
         <!-- Begin Main Nav -->
         
         <nav class="col s12 m12 l12 nav-wrapper white">
-            <a href ="#" class="brand-logo left black-text"><i class="large material-icons">local_dining</i>An Online Recipe Book</a>
-            <a href ="#" class="sidenav-trigger right black-text" data-target="navShortCut">
-            <i class="material-icons">menu</i>
-            </a>
+            <a href ="#" class="brand-logo left black-text navbar-heading"><i class="large material-icons">local_dining</i>Hangry?</a></a>
+            <a href ="#" class="sidenav-trigger right black-text hide-on-med-and-up" data-target="navShortCut"><i class="material-icons">menu</i>
+            
             <!-- Navbar Links-->
-            <ul class="right hide-on-med-and-down">
+            <ul class="right hide-on-small-and-down">
                 <li><a href="#home" class="black-text">Home</a></li>
-                <li class="navbar-search-link" class="black-text"><a href="#search">Search</a></li>
+                <li class="navbar-search-link"><a href="#search" class="black-text">Search</a></li>
                 <li><a href="#contact" class="black-text">Favorites</a></li>
                 <li><a href="./About.html" class="black-text">About</a></li>
             </ul>
@@ -260,9 +259,10 @@
     <script type="text/javascript" src="scripts/random_recipe.js"></script>
     <script type="text/javascript" src="scripts/alcoholAPI.js"></script>
     <script type="text/javascript" src="scripts/keyword-search.js"></script>
-        <script type="text/javascript" src="scripts/addFavourite.js"></script>
-        <script type="text/javascript" src="scripts/mainPage.js"></script>
+    <script type="text/javascript" src="scripts/addFavourite.js"></script>
+    <script type="text/javascript" src="scripts/mainPage.js"></script>
 
+    <!-- Initialize the Materialize sidenav plugin -->
     <script>
         $(document).ready(function() {
             $(".sidenav").sidenav()
