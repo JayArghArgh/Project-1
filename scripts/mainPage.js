@@ -25,12 +25,12 @@ if (urlSearch) {
     // Display a specific recipe.
     if (urlSearch[0] === RECIPE ) {
         workingDiv.empty();
-        workingDiv.html("we're going to run the script <b>displaySingleRecipe.js</b> here");
+        workingDiv.append(viewFavourite(urlSearch[1]));
 
     // Display the users favorites.
     } else if (urlSearch[0] === FAV) {
         workingDiv.empty();
-        workingDiv.html("we're going to run the script <b>showFavourites.js</b> here");
+        workingDiv.append(viewFavourites());
 
     // If there's no match, perform the default action.
     // TODO add in a notifier to the user their match cold not be found.
