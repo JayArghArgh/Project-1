@@ -98,6 +98,13 @@ footer {
     border: 1px solid rgb(37, 36, 36);
 }
 
+.collage-image {
+    width: 350px;
+    height: 350px;
+    padding: 0;
+    margin: 0;
+}
+
 /* Media Queries */
 
 @media screen and (min-width: 860px){
