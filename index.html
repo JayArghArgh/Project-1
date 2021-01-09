@@ -20,7 +20,7 @@
 
         <!-- Begin Main Nav -->
         <nav class="nav-wrapper blue lighten-4">
-            <a href ="#" class="brand-logo left black-text">An Online Recipe Book</a>
+            <a href ="#" class="brand-logo left black-text" style="position:relative; padding-left: 5%;">An Online Recipe Book</a> <!-- added style to position text -->
             <a href ="#" class="sidenav-trigger right black-text" data-target="navShortCut">
             <i class="material-icons">menu</i>
             </a>
@@ -44,13 +44,11 @@
         <!-- End Links -->
 
         <!-- Begin Random Recipes -->
-        <div class="row">
-            <div class="col-container" id="random-recipes"></div>
-        </div>
+        <div class="row" id="random-recipes" ></div> <!-- neatened up-->
         <!-- End Random Recipes -->
 
         <!-- Begin Search area -->
-        <div class="row ">
+        <div class="row" id="search-and-results"> <!-- added id -->
             <div class="col s12 m4 l4" id="search">
                 <form action="" method="get" id="searchFormID">
                     <p class="justified">Enter a keyword to search through our recipes or click on our quicklinks below</p>
@@ -151,7 +149,7 @@
       <script type="text/javascript" src="scripts/keyword-search.js"></script>
       <!-- Compiled and minified JavaScript -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> --> <!-- double up of script, which is already included ten lines or so above -->
     <script>
         $(document).ready(function() {
             $(".sidenav").sidenav()
