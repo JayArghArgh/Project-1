@@ -56,7 +56,8 @@ function getRecipe(mainIngredient) {
             function generateCard() {
                 let displayRow = $('#random-recipes');
                 let newColumn = $('<div>');
-                let newCard = $('<div>').attr('class', 'card card-height');
+                // Add new class for styling purposes.
+                let newCard = $('<div>').attr('class', 'card recipe-card');
                 newCard.attr("data-name", recipeName);
                 newCard.attr("data-index", z);
                 newCard.attr("id", "card-" + z);
@@ -66,22 +67,22 @@ function getRecipe(mainIngredient) {
                 let cardTitle = $('<span>').attr('class', 'card-title');
                 
                 recipeImage.attr("width", "100%");
-                
-                cardTitle.html("<quote>" + recipeName + "</quote>");
+                cardTitle.html("<quote>" + mainIngredient + "</quote>");
                 
                 cardContent.append(cardTitle);
                 cardImage.append(recipeImage);
-                cardImage.append('<a href ="#" class ="halfway-fab btn-floating pink pulse"><i class="material-icons">favorite</i></a>');
+                // Added inline style to the heart btn to override the Materialize style setting for 'bottom' plus also moved Email button to here to be able to position card elements plus added style.
+                cardImage.append('<a href ="#" class ="halfway-fab btn-floating pink pulse" style="bottom:0.5rem;"><i class="material-icons">favorite</i></a>');
+                cardImage.append("<a class='waves-effect waves-light btn-small modal-trigger' style='position:absolute; bottom:0; left:0; display:inline-block;' onclick = 'popModal()' href='#modal1'><i class='material-icons left'>email</i>Email</a>");
                 
                 cardContent.append('<h4>' + recipeName + '</h4>');
-                
-                cardContent.append("<a class='waves-effect waves-light btn-small modal-trigger' onclick = 'popModal()' href='#modal1'><i class='material-icons left'>email</i>Email</a>");
                
                 
                 newCard.append(cardImage);
                 newCard.append(cardContent);
                 
-                newColumn.attr('class', 'col s12 m6 col-cards');
+                // Added two helper classes to assist with layout.
+                newColumn.attr('class', 'col s12 m6 col-cards d-flex justify-center');
                 newColumn.append(newCard);
                 displayRow.append(newColumn);
                 
