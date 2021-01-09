@@ -16,50 +16,97 @@
 
 <body>
     <!-- Begin Container -->
-    <div class="container">
+    <div class="container-fluid grey lighten-5">
 
         <!-- Begin Main Nav -->
-        <nav class="nav-wrapper blue lighten-4">
-            <a href ="#" class="brand-logo left black-text">An Online Recipe Book</a>
+        
+        <nav class="col s12 m12 l12 nav-wrapper white">
+            <a href ="#" class="brand-logo left black-text"><i class="large material-icons">local_dining</i>An Online Recipe Book</a>
             <a href ="#" class="sidenav-trigger right black-text" data-target="navShortCut">
             <i class="material-icons">menu</i>
             </a>
             <!-- Navbar Links-->
             <ul class="right hide-on-med-and-down">
-                <li><a href="#home">Home</a></li>
-                <li class="navbar-search-link"><a href="#search">Search</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#home" class="black-text">Home</a></li>
+                <li class="navbar-search-link" class="black-text"><a href="#search">Search</a></li>
+                <li><a href="#contact" class="black-text">Favorites</a></li>
+                <li><a href="./About.html" class="black-text">About</a></li>
             </ul>
         </nav>
         <!-- End Main Nav -->
-
+                
         <!-- Links that appear via drop down (side navigation when screen size is small / medium)-->
         <ul class="sidenav" id="navShortCut">
             <li><a href="#home">Home</a></li>
             <li class="navbar-search-link"><a href="#search">Search</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Favorites</a></li>
+            <li><a href="./About.html">About</a></li>
         </ul>
         <!-- End Links -->
-
+        <!--Head Image start-->
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <img class="center" width="1500" height="500"  src="./images/table.jpg"> 
+            </div>
+        <!--Start Tag-->
+        <div class="row">
+            <div class="col s12 m12 l12 center">
+                <br>
+                <div class="blue-grey-text lighten-2"><br><h4>You Know That Thing You Just Cant Stop Thinking About?</h4>
+                    <h2>Its Food</h2>
+                    <p>If youre anything like the rest of us then food is your vibe</p>
+                    <h5>Welcome to our food finder website. Whatever you feel like eating we've got it. </h5>
+                <br>
+            </div>
+                <br>
+            </div>
+        </div>
+        <!--End Tag-->
+        <!--Start Feature recipe-->
+        <div class="row">
+            <div class="col s12 m5 l5"><img width="550" src="./images/gnocchi.webp"></div>
+            <div class="col s12 m7 l7"><h4 class="center"><a href="https://www.bbcgoodfood.com/recipes/chorizo-mozzarella-gnocchi-bake">Chorizo & Mozzarella Gnocchi Bake</a></h4>
+            <h5 class="center">Upgrade cheesy tomato pasta with gnocchi, chorizo and mozzarella for a comforting bake that makes an excellent midweek meal</h5></div>
+            <br><br>
+            <div class="center red-text"><h4></h4><a href="https://www.bbcgoodfood.com/recipes/chorizo-mozzarella-gnocchi-bake">TRY IT HERE</a></h4></div>
+            <br>
+            <br>
+            <!--Add to social media links start-->
+            <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                <a class="a2a_button_facebook"></a>
+                <a class="a2a_button_twitter"></a>
+                <a class="a2a_button_email"></a>
+                <a class="a2a_button_pinterest"></a>
+                </div>
+            
+                <!-- AddTo Social Any End -->
+        </div>  
+        <!--End Feature recipe-->  
         <!-- Begin Random Recipes -->
         <div class="row">
             <div class="col-container" id="random-recipes"></div>
         </div>
         <!-- End Random Recipes -->
-
+<!--Website Name-->
+<div class="row">
+    <div class="col s12 m12 l12 center">
+        <div class="blue-grey-text lighten-2  " style="border: 1px solid rgb(37, 36, 36)"><h1>HANGRY</h1>
+        <h5 class="red-text">For The Love Of Food</h5></div>
+    </div>
+</div>
+<!--Website name end-->
         <!-- Begin Search area -->
         <div class="row ">
             <div class="col s12 m4 l4" id="search">
                 <form action="" method="get" id="searchFormID">
-                    <p class="justified">Enter a keyword to search through our recipes or click on our quicklinks below</p>
+                    <h3 class="justified">Search Our Recipes Here</h3>
                     <div class="row">
                         <div class="col s9 input-field">
-                            <input type="text" class="validate" name="search" id="keywordID" placeholder="Search" title="Type in a keyword">
+                            <input type="text" class="validate" name="search" id="keywordID" placeholder="Paella" title="Type in a keyword">
                         </div>
                         <div class="col s3" id="searchBtnDiv">
-                            <button class="btn-floating waves-effect waves-light pulse transparent black-text" id="searchBtn">GO</button>
+                            <button class="btn-floating waves-effect waves-light pulse black text-lighten-4" id="searchBtn"><i class="material-icons">search</i></button>
+                            
                         </div>
                     </div>
                 </form>
@@ -72,19 +119,82 @@
                 </div>
             </div>
             <div class="col s12 m4 l4 z-depth-z" id="recipe-result">
-                result section
+                <br><br>  <br><br> 
+                <img class="materialboxed" width="900" src="./images/feast.jpg">   
             </div>
 
             <div class="col s12 m4 l4" id="spare">
-                spare div
+                 
+            </div>    
             </div>
         </div>
         <!-- End Search Area -->
-
+        <!--Start Tag line-->
+        <div class="row">
+            <div class="col s12 m12 l12 center">
+                <br>
+                <div style="border: 1px solid rgb(37, 36, 36)"><h4>Have a #GetTogether Invite your #Friends Prepare a #SpecialMeal</h4>
+                </div>
+                <br>
+            </div>
+        </div>
+        <!--End Tag Line-->
+        <!--Start Food Picture Collage-->
+        <div class="row">
+            <div class="col s12 m3 l3">
+                <img class="materialboxed" width="350" height="350"  src="./images/burge.jpg"> 
+            </div>
+            <div class="col s12 m3 l3">
+                <img class="materialboxed" width="350" height="350"  src="./images/Pita-Mediterranean-5.jpg"> 
+            </div>
+            <div class="col s12 m3 l3">
+                <img class="materialboxed" width="350" height="350" src="./images/pancakes.jpg"> 
+            </div>
+            <div class="col s12 m3 l3">
+                <img class="materialboxed" width="350" height="350"  src="./images/yum.jpg"> 
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12 m3 l3">
+                <img class="materialboxed" width="350" height="350"  src="./images/07.jpg"> 
+            </div>
+            <div class="col s12 m3 l3">
+                <img class="materialboxed" width="350" height="350"  src="./images/08.jpg"> 
+            </div>
+            <div class="col s12 m3 l3">
+                <img class="materialboxed" width="350" height="350" src="./images/14.jpg"> 
+            </div>
+            <div class="col s12 m3 l3">
+                <img class="materialboxed" width="350" height="350"  src="./images/09.jpg"> 
+            </div>
+          </div>
+          <!--End Food Picture Collage -->      
         <!-- Begin Footer -->
-        <footer class="col-12 blue lighten-4 white-text flow-text">
-            <p>Footer</p>
+        <footer class="page-footer white">
+            
+            <div class="row">
+              <div class="col s12 m12 l12">
+                <h3 class=" center black-text ">HANGRY</h3>
+              </div>
+                
+                 <!-- AddTo Social BEGIN -->
+                  
+    <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+        <a class="a2a_button_facebook"></a>
+        <a class="a2a_button_twitter"></a>
+        <a class="a2a_button_email"></a>
+        <a class="a2a_button_pinterest"></a>
+        </div>
+    
+        <!-- AddTo Social Any End -->
+              </div>
+            </div>
         </footer>
+        <div class="footer-copyright">
+            <div class="container center">
+            © 2020 Copyright Text
+            
+            </div>
         <!-- End Footer -->
 
     </div>
@@ -128,18 +238,19 @@
         </div> 
         <br>
         <div class="modal-footer">
-        <a id="decIndex" class="btn waves-effect waves-light">
+        <a id="decIndex" class="btn waves-effect waves-light black">
             <i class="material-icons">arrow_back</i>
         </a> 
-        <a id="incIndex" class="btn waves-effect waves-light">
+        <a id="incIndex" class="btn waves-effect waves-light black">
         <i class="material-icons">arrow_forward</i>
         </a> 
-        <a href="#!" id="modEmailBtn" class="waves-effect waves-green btn-flat">Email</a>
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        <a href="#!" id="modEmailBtn" class="waves-effect waves-effect btn-flat black"><i class="material-icons">email</i></a>
+        <a href="#!" class="modal-close waves-effect waves-effect btn-flat black"><i class="material-icons">close</i></a>
         </div>
     </div>
     <!--------------------------------------------------- MODAL END ------------------------------------------------------------------------->
   <!-- include scripts here -->
+  <script async src="https://static.addtoany.com/menu/page.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
       <script src="https://smtpjs.com/v3/smtp.js"></script> 

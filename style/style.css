@@ -52,9 +52,7 @@ li:last-of-type {
     margin-left: 10%;
 }
 
-#spare {
-    float: left;
-}
+
 
 /* new class added to make the cards all the same height  --------------start-----------------------*/
 .col-container {
@@ -67,6 +65,7 @@ li:last-of-type {
     height: 100%;
 } 
 /* new class added to make the cards all the same height  --------------end-----------------------*/
+/* this is to blur image edges */
 
 footer {
     text-align: center;
