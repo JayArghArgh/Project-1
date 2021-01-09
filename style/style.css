@@ -1,10 +1,6 @@
 /* STYLESHEET */
 /* style.css */ 
 
-
-
-
-
 ul {
     list-style: none;
 }
@@ -23,6 +19,11 @@ h4 {
 
 #searchBtnDiv {
     padding: 0;
+}
+
+.teaser {
+    padding-top: 12px;
+    padding-bottom: 12px;
 }
 
 .keywords-list-item {
