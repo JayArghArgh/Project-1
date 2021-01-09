@@ -4,7 +4,6 @@ console.log("=== Loaded addFavourites.js ===");
 // Check for favourites. If favourites load them.
 let storedFavourites = JSON.parse(localStorage.getItem("favourites"));
 let userFavourites = [];
-let clickedItemId;
 
 function updateFavourites(recipeItem) {
     // Add a new favourite and update local storage.
@@ -28,6 +27,3 @@ $('#random-recipes').click(function (event) {
     let favouriteItem = event.target;
     updateFavourites(favouriteItem.getAttribute('id'));
 });
-
-
-// if user clicks favourites menu update the main div with the favourites. leave the search form present for the user.

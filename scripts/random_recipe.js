@@ -1,4 +1,5 @@
 "use strict";
+console.log("=== Loaded random_recipe.js ===");
 const MAX_RANDOMS = 2;
 const KEYWORDS = ['beef', 'chicken', 'pork', 'vegetarian', 'smoothies', 'vegan', 'salad', 'dessert'];
 
@@ -47,23 +48,17 @@ function getRandomRecipe() {
         cardImage.append('<a href ="#" class ="halfway-fab btn-floating pink pulse"><i class="material-icons">favorite</i></a>');
 
         cardContent.append('<h4>' + recipeName + '</h4>');
-        
+
         cardContent.append("<a class='waves-effect waves-light btn-small modal-trigger' onclick = 'popModal()' href='#modal1'><i class='material-icons left'>email</i>Email</a>");
-        
-        
+
+
         randomCard.append(cardImage);
         randomCard.append(cardContent);
-        
+
         randomColumn.attr('class', 'col s12 m6 col-cards');
         randomColumn.append(randomCard);
         displayRow.append(randomColumn);
     });
 };
- 
 
-// Return a couple rando's.
-let i = 0;
-while (i < MAX_RANDOMS) {
-    getRandomRecipe();
-    i++;
-}
+
