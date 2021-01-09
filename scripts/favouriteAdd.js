@@ -59,6 +59,11 @@ function viewFavourites() {
     return favReturn;
 }
 
+
+function viewFavourite(favId) {
+
+}
+
 // If favourites, initialise them.
 if (storedFavourites) {
     userFavourites = storedFavourites;
@@ -68,7 +73,7 @@ if (storedFavourites) {
 $('#random-recipes').click(function (event) {
     event.preventDefault();
     let favouriteItem = event.target;
-    if (favouriteItem.getAttribute('class') && favouriteItem.getAttribute('class').includes('fav')) {
+    if (favouriteItem.getAttribute('class') && favouriteItem.getAttribute('class').includes('fav-add')) {
         console.log(favouriteItem.getAttribute('id'));
         updateFavourites(favouriteItem.getAttribute('id'));
     }
