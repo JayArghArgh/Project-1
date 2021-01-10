@@ -78,7 +78,7 @@ if (storedFavourites) {
 }
 
 // Listen for clicks to favourite button.
-$('#random-recipes').click(function (event) {
+$('#content-main').click(function (event) {
     // event.preventDefault();
     let favouriteItem = event.target;
     if (favouriteItem.getAttribute('class').includes('fav-add')) {
