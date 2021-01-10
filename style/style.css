@@ -1,6 +1,11 @@
 /* STYLESHEET */
 /* style.css */ 
 
+.navbar-heading {
+    white-space: nowrap;
+    margin-left: 3%;
+}
+
 ul {
     list-style: none;
 }
@@ -91,7 +96,7 @@ footer {
 }
 .card-title {
     margin-left: 5%; 
-    margin-right:5%;    
+    margin-right: 5%;    
 }
 
 .tag-line {
