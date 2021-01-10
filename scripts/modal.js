@@ -81,18 +81,33 @@ function popModalIngredients(){
  //Remove old table body and wine pairing if there
  document.getElementsByTagName("tbody")[0].remove();
 
- let tableBody = document.createElement('tbody');
- tableBody.setAttribute("id", "modRecipeIngredients");
- document.getElementById("modTablHead").appendChild(tableBody);
+ //Create ingredients table
+ let ingTableBody = document.createElement('tbody');
+ ingTableBody.setAttribute("id", "modRecipeIngredients");
+ document.getElementById("modTablHead").appendChild(ingTableBody);
 
 
  //Loop through ingredients and make table from current ingredients list
  for (let x=0; x < apiResponseParsed.hits[modIndex].recipe.ingredients.length; x++) { 
-     let row = tableBody.insertRow(x);
-     let cell1 = row.insertCell(0);
-     cell1.innerHTML = apiResponseParsed.hits[modIndex].recipe.ingredients[x].text;
+     let ingRow = ingTableBody.insertRow(x);
+     let ingCell1 = ingRow.insertCell(0);
+     ingCell1.innerHTML = apiResponseParsed.hits[modIndex].recipe.ingredients[x].text;
  }
  
+ //Remove old methosd table
+ document.getElementsByTagName("tbody")[1].remove();
+ //Create ingredientws table
+ let methTableBody = document.createElement('tbody');
+ methTableBody.setAttribute("id", "modRecipeMethod");
+ document.getElementById("modInsHead").appendChild(methTableBody);
+
+ //Loop through method / steps to create method table
+ for (let y=0; y < recipeInstructionsParsed.analyzedInstructions[0].steps.length; y++) { 
+    let methRow = methTableBody.insertRow(y);
+    let methCell1 = methRow.insertCell(0);
+    methCell1.innerHTML = recipeInstructionsParsed.analyzedInstructions[0].steps[y].number + " - " + recipeInstructionsParsed.analyzedInstructions[0].steps[y].step;
+}
+
 }
 
 
@@ -108,5 +123,4 @@ function popModalWine(){
     }
 
 }
-
 
