@@ -1,6 +1,8 @@
 "use strict";
 console.log("=== Loaded addFavourites.js ===");
 
+const ITEM_SEP = '~~~';
+
 // Check for favourites. If favourites load them.
 let storedFavourites = JSON.parse(localStorage.getItem("favourites"));
 let userFavourites = [];
@@ -8,7 +10,14 @@ let recipeLink = "./index.html?recipe=";
 
 function updateFavourites(recipeItem) {
     // Add a new favourite and update local storage.
-    let favouriteItem = apiResponseParsed.hits[recipeItem].recipe.uri;
+    let favouriteItem;
+    favouriteItem = apiResponseParsed.hits[recipeItem].recipe.uri;
+    favouriteItem += ITEM_SEP;
+    favouriteItem += apiResponseParsed.hits[recipeItem].recipe.label;
+    favouriteItem += ITEM_SEP;
+    favouriteItem += apiResponseParsed.hits[recipeItem].recipe.image;
+
+    console.log(favouriteItem);
     if (!userFavourites.includes(favouriteItem)) {
         // only do the updates if the item does not exist in the favourites array already.
         userFavourites.push(favouriteItem);
@@ -19,43 +28,51 @@ function updateFavourites(recipeItem) {
 function viewFavourites() {
     // Present all favourites in a table format.
     // Set required variables.
+    let favUl = $('<ul class="collection">');
+    let favLi;
+    let favSpan;
+    let favImg;
+    let favContent;
     let favReturn = $('<row>');
-    let favReturnTable = $('<table>');
     let favReturnLink;
-    let tempTr;
-    let tempTd;
+    let titleLink;
 
     // Set the attributes.
-    favReturn.attr('class', 's1 m4 l4');
-    favReturnTable.attr('class', 'centered striped');
-    favReturnTable.attr('border', '1px');
-
-    // Set the table header.
-    favReturnTable.append(
-        '<thead><tr><th>Recipe</th><th>Remove</th><th>Share</th></tr></thead>'
-    )
+    favReturn.attr('class', 'col s12 m4 l4');
 
     // Loop through each favourite and append to table.
     storedFavourites.forEach(function (favItem){
+        favItem = favItem.split(ITEM_SEP);
+
+        // Setup the favourites link
         favReturnLink = $('<a>',{
-            text: favItem,
+            html: '<i class="material-icons">grade</i>',
             title: 'Your fav',
-            href: recipeLink + favItem.split("#")[1]
+            class: 'secondary-content',
+            href: recipeLink + favItem[0].split("#")[1]
         });
 
-        tempTr = $('<tr>');
-        tempTd = $('<td>');
+        // Setup the title link.
+        titleLink = $('<a>', {
+            html: '<h4>' + favItem[1] +'</h4>',
+            href: recipeLink + favItem[0].split("#")[1]
+        })
 
-        tempTd.append(favReturnLink);
-
-        tempTr.append(tempTd);
-        tempTr.append('<td><td>');
-        favReturnTable.append(tempTr);
-
+        favImg = $('<img alt="" class="circle">');
+        favImg.attr('src', favItem[2])
+        favLi = $('<li class="collection-item avatar">');
+        favSpan = $('<span class="title">');
+        favSpan.append(titleLink);
+        // favContent = $('<p>'+ favItem[0] +'</p>');
+        favLi.append(favImg);
+        favLi.append(favSpan);
+        // favLi.append(favContent);
+        favLi.append(favReturnLink);
+        favUl.append(favLi);
     });
 
-    // Append the table to the column and return.
-    favReturn.append(favReturnTable);
+    // Append the list to the column and return.
+    favReturn.append(favUl);
     return favReturn;
 }
 
@@ -74,8 +91,8 @@ if (storedFavourites) {
 }
 
 // Listen for clicks to favourite button.
-$('#fav-add').click(function (event) {
-    //event.preventDefault();
+$('#random-recipes').click(function (event) {
+    // event.preventDefault();
     let favouriteItem = event.target;
     if (favouriteItem.getAttribute('class').includes('fav-add')) {
         updateFavourites(favouriteItem.getAttribute('id'));
