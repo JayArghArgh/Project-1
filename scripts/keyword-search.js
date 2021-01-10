@@ -173,9 +173,20 @@ function getKeyword(keywordEvent) {
         renderKeywordList();
         renderQuicklinks();
         getRecipe(keyword);
-        getWinePairing(keyword);    
+        getWinePairing(keyword);   
     }
-}
+
+};
+
+
+// When a keyword is entered in the Search input box...
+$("#searchBtn").on("click", function(){
+    getKeyword(keywordID);
+});
+$("#searchBtntop").on("click", function(){
+    getKeyword(keywordIDtop);
+});
+
 
 
 
@@ -206,6 +217,7 @@ keywordList.on("click", function (event) {
     
 
 function renderQuicklinks() {
+    console.log("the render QuickLinks function is running")
     for (let z = 0; z < userKeywordArray.length; z++) {
         let quicklinkIndex = "#ql"+z;
         let qlText = $(quicklinkIndex).text();
