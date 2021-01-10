@@ -28,17 +28,14 @@ function updateFavourites(recipeItem) {
 function viewFavourites() {
     // Present all favourites in a table format.
     // Set required variables.
+    let favReturn = $('<div class="container center">');
+    let divCol = $('<div class="col s12 m4 l4">');
     let favUl = $('<ul class="collection">');
     let favLi;
     let favSpan;
     let favImg;
-    let favContent;
-    let favReturn = $('<row>');
     let favReturnLink;
     let titleLink;
-
-    // Set the attributes.
-    favReturn.attr('class', 'col s12 m4 l4');
 
     // Loop through each favourite and append to table.
     storedFavourites.forEach(function (favItem){
@@ -72,7 +69,8 @@ function viewFavourites() {
     });
 
     // Append the list to the column and return.
-    favReturn.append(favUl);
+    divCol.append(favUl);
+    favReturn.append(divCol);
     return favReturn;
 }
 
