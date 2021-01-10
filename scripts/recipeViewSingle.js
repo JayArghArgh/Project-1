@@ -5,6 +5,7 @@ function viewSingleRecipe(recipeId) {
     // View a single recipe.
     // Set required variables
     let divRow = $('<div>').attr('class', 'container center');
+    let emptyDiv = $('<div>').attr('class', 'col s0 m4 l4');
     let divCol = $('<div>').attr('class', 'col s12 m4 l4');
 
     // Set the API search path.
@@ -30,13 +31,14 @@ function viewSingleRecipe(recipeId) {
 
         console.log(qResult);
         cardSpan.append(qResult.recipe.label);
-        cardImage.attr('src', 'https://www.edamam.com/web-img/bf3/bf3783ccb2c4c7e4a97ef81652f5be6b.jpg');
-        // cardImage.attr('width', "400px");
+        cardImage.attr('src', qResult.recipe.image);
         cardImageDiv.append(cardImage, cardSpan);
         cardLayout.append(cardImageDiv, cardContent, cardAction);
-
         divCol.append(cardLayout);
+
+        divRow.append(emptyDiv);
         divRow.append(divCol);
+        divRow.append(emptyDiv);
     });
     return divRow;
 }
