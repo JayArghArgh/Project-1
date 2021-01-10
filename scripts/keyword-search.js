@@ -7,6 +7,31 @@
 let userKeywordArray = ['beef', 'chicken', 'pork', 'vegetarian', 'smoothies', 'vegan', 'salad', 'dessert'];
 let keywordList = $("#recipeQuicklinks");
 
+// SEARCH BOX INPUT
+let keywordSearch;
+let keyword = "";
+let keywordID = $('#keywordID');
+let keywordIDtop = $('#keywordIDtop');
+
+// When a keyword is entered in the Search input box...
+// $("#searchBtn").on("click", getKeyword(keywordID));
+// $("#searchBtntop").on("click", getKeyword(keywordIDtop));
+
+searchBtnObj = document.getElementById("searchBtn");
+searchBtnTopObj = document.getElementById("searchBtntop");
+
+
+searchBtnObj.addEventListener("click", function(){
+    getKeyword(keywordID);   
+    console.log("SearchBtn click event works");     
+});
+
+
+searchBtnTopObj.addEventListener("click", function(){
+    getKeyword(keywordIDtop);
+    console.log("SearchBtnTop click event works");   
+});
+
 
 initKeywordList();
 
@@ -78,17 +103,7 @@ function storeKeyword() {
     localStorage.setItem("keywords", JSON.stringify(userKeywordArray));   
 }
 
-$('#searchFormID')
-$('#searchBtnDiv')
-$('#searchBtn')
 
-
-// SEARCH BOX INPUT
-
-let keywordSearch;
-let keyword = "";
-let keywordID = $('#keywordID');
-let keywordIDtop = $('#keywordIDtop');
 
 function getKeyword(keywordEvent) {
     // event.preventDefault();
@@ -120,36 +135,14 @@ function getKeyword(keywordEvent) {
         getRecipe(keyword);
         getWinePairing(keyword);    
     }
-};
-
-
-// When a keyword is entered in the Search input box...
-// $("#searchBtn").on("click", getKeyword(keywordID));
-// $("#searchBtntop").on("click", getKeyword(keywordIDtop));
-$("#searchBtn").click(function(){
-    getKeyword(keywordID);
-});
-$("#searchBtntop").click(function(){
-    getKeyword(keywordIDtop);
-});
-
-
-// click event sets focus if 'Search' is clicked in menu to bottom Search input
-$(".navbar-search-link").on("click", function() {
-    console.log("navbar search link clicked");
-    setFocus();
-})
-
-// 
-function setFocus() {
-    keywordID.focus();
-    console.log("setFocus() is running");
 }
+
 
 
 // QUICKLINKS
 // When an element inside the keyword <ul> is clicked...
 keywordList.on("click", function (event) {
+ 
     event.preventDefault();
     
     let element = event.target;
@@ -165,10 +158,12 @@ keywordList.on("click", function (event) {
         renderKeywordList();
         renderQuicklinks();
         }
-    });
+    
+});
 
 
 
+    
 
 function renderQuicklinks() {
     for (let z = 0; z < userKeywordArray.length; z++) {

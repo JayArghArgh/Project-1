@@ -1,4 +1,4 @@
-"use strict";
+//"use strict";
 
 const API_APP_ID = "&app_id=7cfd493f";
 const API_APP_KEY = "&app_key=e16c4ecac435fcb87d81e33ed0937f0f";
@@ -9,6 +9,7 @@ let apiResponseParsed;
 
 function getRecipe(mainIngredient) {
     // Gets a bunch of recipes matching the keyword searched.
+    console.log("get recipe ran");
     let apiUrl = API_PATH;
     let apiUrlExtension = "?q=" + mainIngredient;
     // change to number of recipes the api is returning in it's array (from default of 10 to 8);
@@ -24,7 +25,7 @@ function getRecipe(mainIngredient) {
         recipeResult.empty();
 
         //  clear the current cards from the div
-        $('#random-recipes').empty();
+        $('#apiRecipes').empty();
 
         //Store response in session storage for use by other functions
         sessionStorage.setItem("apiResponse" , JSON.stringify(response));
@@ -34,8 +35,8 @@ function getRecipe(mainIngredient) {
         // add an index number for each card generated
         let z=0;
 
-        // add the recipe name to the results.
-        response.hits.forEach(function(hit) {
+            // add the recipe name to the results.
+            response.hits.forEach(function(hit) {
             let listAnchor = $("<a>");
             let listItem = $('<p>');
 
@@ -54,7 +55,7 @@ function getRecipe(mainIngredient) {
 
             // Generates display card.
             function generateCard() {
-                let displayRow = $('#random-recipes');
+                let displayRow = $('#apiRecipes');
                 let newColumn = $('<div>');
                 // Add new class for styling purposes.
                 let newCard = $('<div>').attr('class', 'card recipe-card');
@@ -89,8 +90,8 @@ function getRecipe(mainIngredient) {
                 
                 z++;
             }
-          // Generate the card.
-            generateCard();
+                // Generate the card.
+        generateCard();
 
         });
     });
