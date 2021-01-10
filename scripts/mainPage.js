@@ -4,6 +4,18 @@ console.log("=== Loaded mainPage.js ===");
 const RECIPE = '?recipe';
 const FAV = '?fav';
 
+//Init picture carousel
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.slider');
+    var instances = M.Slider.init(elems);
+  });
+
+  
+  //var instance = M.Carousel.init({
+  //  fullWidth: true
+  //});
+
 // Set a couple of variables for use.
 let urlSearch;
 let workingDiv;
