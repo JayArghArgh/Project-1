@@ -24,27 +24,36 @@ function getRecipeInstructionsJS() {
         // Gets a bunch of recipes matching the keyword searched.
         let apiUrl3 = API_PATH3;
         let apiUrlExtension3 = "?url=" + recipeURL;  // edamam returned Recipe URL
-        apiUrl3 += apiUrlExtension3 + API_APP_KEY3;
+        apiUrl3 += apiUrlExtension3 + API_APP_KEY2;
 
         // The Ajax query itself.
         $.ajax({
             url: apiUrl3,
             method: "GET"
         }).then(function(response) {
-            if (response.instructions === null) {
-                console.log("no steps for: " + response.title);
-                return;
-                }
-            else {
-                let recipeSteps = response.analyzedInstructions[0].steps;
 
-                console.log(response);
-                console.log("Cooking steps for:  " + response.title);
+            //Store response in session storage for use by other functions
+            sessionStorage.setItem("recipeInstructions" , JSON.stringify(response));
+            let recipeInstructions = sessionStorage.getItem("recipeInstructions");
+            let recipeInstructionsParsed =  JSON.parse(recipeInstructions);
+            console.log("Session Storage rec instructions:" + recipeInstructionsParsed);
+
+
+
+            // if (response.instructions === null) {
+            //     console.log("no steps for: " + response.title);
+            //     return;
+            //     }
+            // else {
+            //     let recipeSteps = response.analyzedInstructions[0].steps;
+
+            //     console.log(response);
+            //     console.log("Cooking steps for:  " + response.title);
             
-                for (let x = 0; x < recipeSteps.length; x++) {
-                    console.log("Step " + recipeSteps[x].number +": " + recipeSteps[x].step);
-                    }   
-            }             
+            //     for (let x = 0; x < recipeSteps.length; x++) {
+            //         console.log("Step " + recipeSteps[x].number +": " + recipeSteps[x].step);
+            //         }   
+            // }             
         });
     };
 };
