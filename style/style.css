@@ -14,6 +14,12 @@ ul {
     padding: 0.4rem 0 0.2rem 0;
 }
 
+.hImg {
+
+    opacity: .9;     
+     
+}
+
 .error{
     outline: 1px solid red;
 }  

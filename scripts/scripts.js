@@ -83,7 +83,7 @@ function getRecipe(mainIngredient) {
                 newCard.append(cardContent);
                 
                 // Added two helper classes to assist with layout.
-                newColumn.attr('class', 'col s12 m6 col-cards d-flex justify-center');
+                newColumn.attr('class', 'col s12 m3 col-cards d-flex justify-center');
                 newColumn.append(newCard);
                 displayRow.append(newColumn);
                 

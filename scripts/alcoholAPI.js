@@ -5,7 +5,7 @@ const API_APP_KEY3 = "&apiKey=c147831ac0e740369f586aebbffd9590"; // second API k
 const API_APP_KEY4 = "&apiKey=12379bbb78244c0189010a85deb6a8e3"; // third API key for times when 402 error is returned
 
 const API_PATH2= "https://api.spoonacular.com/food/wine/pairing";
-
+let winePairing = [];
 
 function getWinePairing(mainIngredient) {
     // Gets a bunch of recipes matching the keyword searched.
@@ -43,15 +43,9 @@ function getWinePairing(mainIngredient) {
                     let wineFirstLetter = wineName.charAt(0);
                     let wineWithCapitalFL = wineFirstLetter.toUpperCase();
                     let wineNameCapitalFL = wineName.replace(wineFirstLetter, wineWithCapitalFL);
-                    // adding the list of paired wines to the div list
-                    wineListItem.append(wineListHeading);
-                    wineListHeading.html(wineNameCapitalFL);
-                    spareDivList.append(wineListItem);
+                    winePairing[ii] = wineNameCapitalFL;
                 };
-                // appending the wine pairing text after the list of wines 
-                let wineListPara = $('<p>');
-                wineListPara.html(response.pairingText);
-                spareDivList.append(wineListPara);
+               
             }
         });
     };

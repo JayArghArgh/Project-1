@@ -37,45 +37,75 @@ modEmailBtnObj.addEventListener("click", function(){
     }
 });
 
+
 //Modal functions
 
 //Increment modal index and populate modal
 function incModalIndex(){
    if (modIndex < (apiResponseParsed.hits.length - 1)){
         modIndex ++;
-        popModal();
+        popModalIngredients();
     }
 }
+
 
 //Decrement modal index and populate modal
 function decModalIndex(){
     if (modIndex > 0){
         modIndex --;
-        popModal();
+        popModalIngredients();
     }
 }
 
-//Populate modal function
+
+//Populate modal function for the first time
 function popModal(){
 
-    //Add recipe heading from api
-    modRecipeNameObj.textContent = apiResponseParsed.hits[modIndex].recipe.label;
-    //Add recipe image from api
-    modRecipePicObj.src = apiResponseParsed.hits[modIndex].recipe.image;
-    //Get table objext from id
-    let table = document.getElementById("modRecipeIngredients");
-    //If table already created delete
-    let totalRowCount = table.rows.length
-        
-    document.getElementsByTagName("tbody")[0].remove();
-    let tableBody = document.createElement('tbody');
-    tableBody.setAttribute("id", "modRecipeIngredients");
-    document.getElementById("modTablHead").appendChild(tableBody);
-
-    //Loop through ingredients and make table from current ingredients list
-    for (let x=0; x < apiResponseParsed.hits[modIndex].recipe.ingredients.length; x++) { 
-        let row = tableBody.insertRow(x);
-        let cell1 = row.insertCell(0);
-        cell1.innerHTML = apiResponseParsed.hits[modIndex].recipe.ingredients[x].text;
-    }
+    popModalIngredients();
+    popModalWine();   
+   
 }
+
+// Populate modal with updated ingredients
+function popModalIngredients(){
+
+ //Add recipe heading from api
+ modRecipeNameObj.textContent = apiResponseParsed.hits[modIndex].recipe.label;
+ //Add recipe image from api
+ modRecipePicObj.src = apiResponseParsed.hits[modIndex].recipe.image;
+ //Get table objext from id
+ let table = document.getElementById("modRecipeIngredients");
+
+ //If table already created delete     
+ //Remove old table body and wine pairing if there
+ document.getElementsByTagName("tbody")[0].remove();
+
+ let tableBody = document.createElement('tbody');
+ tableBody.setAttribute("id", "modRecipeIngredients");
+ document.getElementById("modTablHead").appendChild(tableBody);
+
+
+ //Loop through ingredients and make table from current ingredients list
+ for (let x=0; x < apiResponseParsed.hits[modIndex].recipe.ingredients.length; x++) { 
+     let row = tableBody.insertRow(x);
+     let cell1 = row.insertCell(0);
+     cell1.innerHTML = apiResponseParsed.hits[modIndex].recipe.ingredients[x].text;
+ }
+ 
+}
+
+
+// Populate modal with wine pairing
+function popModalWine(){
+
+
+   for (let y = 0; y < winePairing.length; y++) {
+        const newH4 = document.createElement("h4");
+        const newContent = document.createTextNode(winePairing[y]);
+        newH4.appendChild(newContent);
+        document.getElementById("wineHeading").appendChild(newH4); 
+    }
+
+}
+
+

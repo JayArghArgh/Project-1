@@ -8,7 +8,7 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Own stylesheet to assist with CSS -->
-    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="./style/style.css" />
 
     <title>Project 1 Recipe App</title>
     
@@ -58,66 +58,16 @@
         <!--Head Image start-->
         <div class="row">
             <div class="col s12 m12 l12">
-                <img class="center display-image" src="./images/table.jpg">
+                <img class="center display-image hImg" src = "./images/table.jpg">
             </div>
         </div>
-        <!--Start Tag-->
-        <div class="row v-pad-more">
-            <div class="col s12 m12 l12 center">
-                <div class="blue-grey-text lighten-2"><br><h4>You Know That Thing You Just Cant Stop Thinking About?</h4>
-                    <h2>Its Food</h2>
-                    <p>If youre anything like the rest of us then food is your vibe</p>
-                    <h5>Welcome to our food finder website. Whatever you feel like eating we've got it. </h5>
-                </div>
-            </div>
-        </div>
-        <!--End Tag-->
-
-        <!--Start Feature recipe-->
-        <div class="row">
-            <div class="col s12 m5 l5 center-align">
-                <img width="550" src="./images/gnocchi.webp">
-            </div>
-            <div class="col s12 m7 l7">
-                <h4 class="center"><a href="https://www.bbcgoodfood.com/recipes/chorizo-mozzarella-gnocchi-bake">Chorizo & Mozzarella Gnocchi Bake</a></h4>
-                <h5 class="center">Upgrade cheesy tomato pasta with gnocchi, chorizo and mozzarella for a comforting bake that makes an excellent midweek meal</h5>
-
-                <div class="center red-text v-pad-more">
-                    <h4></h4><a href="https://www.bbcgoodfood.com/recipes/chorizo-mozzarella-gnocchi-bake">TRY IT HERE</a></h4>
-                </div>
-                <!--Add to social media links start-->
-                <div class="d-flex justify-center a2a_kit a2a_kit_size_32 a2a_default_style">
-                    <a class="a2a_button_facebook"></a>
-                    <a class="a2a_button_twitter"></a>
-                    <a class="a2a_button_email"></a>
-                    <a class="a2a_button_pinterest"></a>
-                </div>
-                <!-- AddTo Social Any End -->
-            </div>
-        </div>  
-        <!--End Feature recipe-->
-
-        <!-- Begin Random Recipes -->
-        <!-- TODO this will be made redundant and incorporated in overall container. -->
-        <div class="row" id="random-recipes"></div>
-        <!-- End Random Recipes -->
-
-        <!--Website Name-->
-        <div class="row">
-            <div class="col s12 m12 l12 center">
-                <div class="blue-grey-text lighten-2" style="border: 1px solid rgb(37, 36, 36)">
-                    <h1>HANGRY</h1>
-                    <h5 class="red-text">For The Love Of Food</h5>
-                </div>
-            </div>
-        </div>
-        <!--Website name end-->
-
         <!-- Begin Search area -->
         <div class="row" id="search-and-results"> <!-- added id -->
 
+            <div class="col s1 m1 l1">           
+            </div>
             <!-- Search Begin -->
-            <div class="col s12 m4 l4" id="search">
+            <div class="col s11 m5 l5" id="search">
                 <!-- Search form begin -->
                 <form action="" method="get" id="searchFormID">
                     <h3 class="justified">Search Our Recipes Here</h3>
@@ -133,10 +83,9 @@
                     </div>
                 </form>
                 <!-- Search form end -->
-
                 <!-- Quick links begin -->
                 <div class="row">
-                    <div class="col s12">
+                    <div class="col s12 m12 l12">
                         <ul id="recipeQuicklinks">
                             <!-- quick links list is created in scripts.js file -->
                         </ul>
@@ -144,19 +93,47 @@
                 </div>
                 <!-- Quick links end -->
             </div>
-            <!-- Search end -->
-
-            <!-- TODO this will be made redundant -->
-            <!-- Results begin -->
-            <div class="col s12 m4 l4 z-depth-z" id="recipe-result">
-                <br><br>  <br><br> 
-                <img class="materialboxed" width="900" src="./images/feast.jpg">   
-            </div>
-            <div class="col s12 m4 l4" id="spare">
-            </div>
-            <!-- Results end. -->
+                <!-- Search end -->
+                <!-- End Search Area -->  
+              
+               
+            <!--Start Feature recipe-->
+            <div class="col s11 m5 l5 center-align">
+                <h4 class="center"><a href="https://www.bbcgoodfood.com/recipes/chorizo-mozzarella-gnocchi-bake">Chorizo & Mozzarella Gnocchi Bake</a></h4>
+                <h5 class="center">Upgrade cheesy tomato pasta with gnocchi, chorizo and mozzarella for a comforting bake that makes an excellent midweek meal</h5>
+                <img width="550" src="./images/gnocchi.webp">
+                 <!--Add to social media links start-->
+                 <div class="d-flex justify-center a2a_kit a2a_kit_size_32 a2a_default_style">
+                    <a class="a2a_button_facebook"></a>
+                    <a class="a2a_button_twitter"></a>
+                    <a class="a2a_button_email"></a>
+                    <a class="a2a_button_pinterest"></a>
+                </div>
+                <!-- AddTo Social Any End -->
+                <div class="center red-text v-pad-more">
+                    <h4></h4><a href="https://www.bbcgoodfood.com/recipes/chorizo-mozzarella-gnocchi-bake">TRY IT HERE</a></h4>
+                </div>                
+            </div>  
+            <div class="col s1 m1 l1">                
+            </div>          
         </div>
-        <!-- End Search Area -->
+        <!--End Feature recipe-->
+
+         <!-- Begin Random Recipes -->
+        <!-- TODO this will be made redundant and incorporated in overall container. -->
+        <div class="row" id="random-recipes"></div>
+        <!-- End Random Recipes -->
+        <!--Website Name-->
+        <div class="row">
+            <div class="col s12 m12 l12 center">
+                <div class="blue-grey-text lighten-2" style="border: 1px solid rgb(37, 36, 36)">
+                    <h1>HANGRY</h1>
+                    <h5 class="red-text">For The Love Of Food</h5>
+                </div>
+            </div>
+        </div>
+        <!--Website name end-->
+
 
         <!--Start Tag line-->
         <div class="row">
@@ -232,14 +209,23 @@
     </div>
     <!-- end container-->
 
-    <!-- Modal Begin -->
+    
+ <!-- Modal Begin -->
     <!-- Modal Structure -->
     <div id="modal1" class="modal" style = "max-height: 90%; top:0px;" >
         <div class="modal-content">
-            <h4>Recipe</h4>
+            <h2>Recipe</h2>
             <div id="modRecipeName"></div>
-            <img id="modRecipePic">
+            <div class="row">
+                <div class="col s6 m6 l6">
+                   <img id="modRecipePic">
+                </div>   
+                <div class="col s6 m6 l6">
+                    <h3 id="wineHeading">Wine Suggestion</h3>
+                </div>                                         
+             </div>    
             <table>
+                
                 <thead id="modTablHead">
                     <tr>
                         <th>Quantity / Ingredients</th>
@@ -286,6 +272,9 @@
         </div>
     </div>
     <!-- Modal End -->
+
+
+
 
     <!-- include scripts here -->
     <script async src="https://static.addtoany.com/menu/page.js"></script>
