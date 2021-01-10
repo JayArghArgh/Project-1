@@ -3,6 +3,8 @@
 const API_APP_ID = "&app_id=7cfd493f";
 const API_APP_KEY = "&app_key=e16c4ecac435fcb87d81e33ed0937f0f";
 const API_PATH = "https://api.edamam.com/search";
+const DIV_DISPLAY = '#content-main';
+// const DIV_DISPLAY = '#apiRecipes';
 let modIndex = 0;
 let apiResponseParsed;
 
@@ -22,6 +24,11 @@ function getRecipe(mainIngredient) {
         method: "GET"
     }).then(function(response) {
         let recipeResult = $('#recipe-result');
+        let displayRow = $('<div id="apiRecipes">');
+        let mainContent = $(DIV_DISPLAY);
+        let rowHack = $('<div class ="row">');
+        mainContent.empty();
+        displayRow.empty();
         recipeResult.empty();
 
         //  clear the current cards from the div
@@ -34,17 +41,15 @@ function getRecipe(mainIngredient) {
 
         // add an index number for each card generated
         let z=0;
-
-            // add the recipe name to the results.
-            response.hits.forEach(function(hit) {
+        // add the recipe name to the results.
+        response.hits.forEach(function(hit) {
+            // Assign required varables.
             let listAnchor = $("<a>");
             let listItem = $('<p>');
-
-            // some variable assignments added
             let recipeURL = hit.recipe.url;
             let recipePhoto = hit.recipe.image;
             let recipeName = hit.recipe.label;
-            
+
             listAnchor.attr("href", recipeURL);
             listAnchor.attr("class", "recipe-link");
             listAnchor.attr("id", "")
@@ -55,44 +60,46 @@ function getRecipe(mainIngredient) {
 
             // Generates display card.
             function generateCard() {
-                let displayRow = $('#apiRecipes');
+
                 let newColumn = $('<div>');
                 // Add new class for styling purposes.
                 let newCard = $('<div>').attr('class', 'card recipe-card');
-                newCard.attr("data-name", recipeName);
-                newCard.attr("data-index", z);
-                newCard.attr("id", "card-" + z);
                 let cardImage = $('<div>');
                 let recipeImage = $('<img>').attr('src', recipePhoto);
                 let cardContent = $('<div>');
                 let cardTitle = $('<span>').attr('class', 'card-title');
-                
+
+                newCard.attr("data-name", recipeName);
+                newCard.attr("data-index", z);
+                newCard.attr("id", "card-" + z);
+
                 recipeImage.attr("width", "100%");
                 cardTitle.html("<quote>" + mainIngredient + "</quote>");
-                
+
                 cardContent.append(cardTitle);
                 cardImage.append(recipeImage);
 
                 // Added inline style to the heart btn to override the Materialize style setting for 'bottom' plus also moved Email button to here to be able to position card elements plus added style.
                 cardImage.append('<a href ="#" class ="halfway-fab btn-floating pink pulse" style="bottom:0.5rem;"><i class="material-icons fav-add" id="'+ z + '">favorite</i></a>');
                 cardImage.append("<a class='waves-effect waves-light btn-small modal-trigger' style='position:absolute; bottom:0; left:0; display:inline-block;' onclick = 'popModal()' href='#modal1'><i class='material-icons left'>details</i>Details</a>");
-                
+
                 cardContent.append('<h4>' + recipeName + '</h4>');
-               
-                
+
                 newCard.append(cardImage);
                 newCard.append(cardContent);
-                
+
                 // Added two helper classes to assist with layout.
                 newColumn.attr('class', 'col s12 m3 col-cards d-flex justify-center');
                 newColumn.append(newCard);
                 displayRow.append(newColumn);
-                
+
                 z++;
             }
-                // Generate the card.
-        generateCard();
 
+            // Generate the card.
+            generateCard();
         });
+        rowHack.append(displayRow);
+        mainContent.append(rowHack);
     });
 };
