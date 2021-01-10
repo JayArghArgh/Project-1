@@ -1,6 +1,8 @@
 "use strict";
 console.log("=== Loaded addFavourites.js ===");
 
+const ITEM_SEP = '~~~';
+
 // Check for favourites. If favourites load them.
 let storedFavourites = JSON.parse(localStorage.getItem("favourites"));
 let userFavourites = [];
@@ -8,7 +10,14 @@ let recipeLink = "./index.html?recipe=";
 
 function updateFavourites(recipeItem) {
     // Add a new favourite and update local storage.
-    let favouriteItem = apiResponseParsed.hits[recipeItem].recipe.uri;
+    let favouriteItem;
+    favouriteItem = apiResponseParsed.hits[recipeItem].recipe.uri;
+    favouriteItem += ITEM_SEP;
+    favouriteItem += apiResponseParsed.hits[recipeItem].recipe.label;
+    favouriteItem += ITEM_SEP;
+    favouriteItem += apiResponseParsed.hits[recipeItem].recipe.image;
+
+    console.log(favouriteItem);
     if (!userFavourites.includes(favouriteItem)) {
         // only do the updates if the item does not exist in the favourites array already.
         userFavourites.push(favouriteItem);
@@ -32,16 +41,20 @@ function viewFavourites() {
 
     // Loop through each favourite and append to table.
     storedFavourites.forEach(function (favItem){
+        favItem = favItem.split(ITEM_SEP);
+
         favReturnLink = $('<a>',{
             html: '<i className="material-icons">grade</i>',
             title: 'Your fav',
             class: 'secondary-content',
-            href: recipeLink + favItem.split("#")[1]
+            href: recipeLink + favItem[0].split("#")[1]
         });
-        favImg = $('<img src="images/05.jpg" alt="" class="circle">');
+        favImg = $('<img alt="" class="circle">');
+        favImg.attr('src', favItem[2])
         favLi = $('<li class="collection-item avatar">');
-        favSpan = $('<span class="title">Title</span>');
-        favContent = $('<p>'+ favItem +'</p>');
+        favSpan = $('<span class="title">');
+        favSpan.html(favItem[1]);
+        favContent = $('<p>'+ favItem[0] +'</p>');
 
         favLi.append(favImg);
         favLi.append(favSpan);
@@ -70,7 +83,7 @@ if (storedFavourites) {
 }
 
 // Listen for clicks to favourite button.
-$('#fav-add').click(function (event) {
+$('#random-recipes').click(function (event) {
     event.preventDefault();
     let favouriteItem = event.target;
     if (favouriteItem.getAttribute('class').includes('fav-add')) {
