@@ -1,4 +1,4 @@
-"use strict";
+//"use strict";
 
 const API_APP_ID = "&app_id=7cfd493f";
 const API_APP_KEY = "&app_key=e16c4ecac435fcb87d81e33ed0937f0f";
@@ -9,6 +9,7 @@ let apiResponseParsed;
 
 function getRecipe(mainIngredient) {
     // Gets a bunch of recipes matching the keyword searched.
+    console.log("get recipe ran");
     let apiUrl = API_PATH;
     let apiUrlExtension = "?q=" + mainIngredient;
     // change to number of recipes the api is returning in it's array (from default of 10 to 8);
@@ -24,7 +25,7 @@ function getRecipe(mainIngredient) {
         recipeResult.empty();
 
         //  clear the current cards from the div
-        $('#random-recipes').empty();
+        $('#apiRecipes').empty();
 
         //Store response in session storage for use by other functions
         sessionStorage.setItem("apiResponse" , JSON.stringify(response));
@@ -34,8 +35,8 @@ function getRecipe(mainIngredient) {
         // add an index number for each card generated
         let z=0;
 
-        // add the recipe name to the results.
-        response.hits.forEach(function(hit) {
+            // add the recipe name to the results.
+            response.hits.forEach(function(hit) {
             let listAnchor = $("<a>");
             let listItem = $('<p>');
 
@@ -54,7 +55,7 @@ function getRecipe(mainIngredient) {
 
             // Generates display card.
             function generateCard() {
-                let displayRow = $('#random-recipes');
+                let displayRow = $('#apiRecipes');
                 let newColumn = $('<div>');
                 // Add new class for styling purposes.
                 let newCard = $('<div>').attr('class', 'card recipe-card');
@@ -74,7 +75,7 @@ function getRecipe(mainIngredient) {
 
                 // Added inline style to the heart btn to override the Materialize style setting for 'bottom' plus also moved Email button to here to be able to position card elements plus added style.
                 cardImage.append('<a href ="#" class ="halfway-fab btn-floating pink pulse" style="bottom:0.5rem;"><i class="material-icons fav-add" id="'+ z + '">favorite</i></a>');
-                cardImage.append("<a class='waves-effect waves-light btn-small modal-trigger' style='position:absolute; bottom:0; left:0; display:inline-block;' onclick = 'popModal()' href='#modal1'><i class='material-icons left'>email</i>Email</a>");
+                cardImage.append("<a class='waves-effect waves-light btn-small modal-trigger' style='position:absolute; bottom:0; left:0; display:inline-block;' onclick = 'popModal()' href='#modal1'><i class='material-icons left'>details</i>Details</a>");
                 
                 cardContent.append('<h4>' + recipeName + '</h4>');
                
@@ -83,14 +84,14 @@ function getRecipe(mainIngredient) {
                 newCard.append(cardContent);
                 
                 // Added two helper classes to assist with layout.
-                newColumn.attr('class', 'col s12 m6 col-cards d-flex justify-center');
+                newColumn.attr('class', 'col s12 m3 col-cards d-flex justify-center');
                 newColumn.append(newCard);
                 displayRow.append(newColumn);
                 
                 z++;
             }
-          // Generate the card.
-            generateCard();
+                // Generate the card.
+        generateCard();
 
         });
     });

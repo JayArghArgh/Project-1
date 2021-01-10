@@ -1,9 +1,28 @@
 /* STYLESHEET */
 /* style.css */ 
 
+.navbar-heading {
+    white-space: nowrap;
+    margin-left: 3%;
+}
+
 ul {
     list-style: none;
 }
+
+#keywordIDtop {
+    padding: 0.4rem 0 0.2rem 0;
+}
+
+.hImg {
+
+    opacity: .9;     
+     
+}
+
+.error{
+    outline: 1px solid red;
+}  
 
 h4 {
     font-size: 2rem;
@@ -17,7 +36,7 @@ h4 {
     margin-right: 25%;
 }
 
-#searchBtnDiv {
+#searchBtnDivtop {
     padding: 0;
 }
 
@@ -91,7 +110,7 @@ footer {
 }
 .card-title {
     margin-left: 5%; 
-    margin-right:5%;    
+    margin-right: 5%;    
 }
 
 .tag-line {

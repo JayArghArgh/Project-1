@@ -8,7 +8,7 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Own stylesheet to assist with CSS -->
-    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="./style/style.css" />
 
     <title>Project 1 Recipe App</title>
     
@@ -21,14 +21,26 @@
         <!-- Begin Main Nav -->
         
         <nav class="col s12 m12 l12 nav-wrapper white">
-            <a href ="#" class="brand-logo left black-text"><i class="large material-icons">local_dining</i>An Online Recipe Book</a>
-            <a href ="#" class="sidenav-trigger right black-text" data-target="navShortCut">
-            <i class="material-icons">menu</i>
-            </a>
-            <!-- Navbar Links-->
-            <ul class="right hide-on-med-and-down">
+            <a href ="#" class="brand-logo left black-text navbar-heading"><i class="large material-icons">local_dining</i>Hangry?</a></a>
+            <a href ="#" class="sidenav-trigger right black-text hide-on-med-and-up" data-target="navShortCut"><i class="material-icons">menu</i></a>
+           
+            <div class="right" style="width: 170px; margin-left: 30px;">
+                <form action="" method="get" id="searchFormIDtop">
+                    <div class="row">
+                        <div class="col s9 input-field">
+                            <input type="text" class="validate" name="search" id="keywordIDtop" placeholder="Are you Hangry?" title="Type in a keyword">
+                        </div>
+                        <div class="col s3" id="searchBtnDivtop">
+                            <button class="btn-floating waves-effect waves-light pulse black text-lighten-4 btn-small" id="searchBtntop"><i class="material-icons" style="bottom: 1px;">search</i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>  
+                            
+        <!-- Navbar Links-->
+            <ul class="right hide-on-small-and-down">
                 <li><a href="#home" class="black-text">Home</a></li>
-                <li class="navbar-search-link" class="black-text"><a href="#search">Search</a></li>
+                <!-- <li class="navbar-search-link"><a href="#search" class="black-text">Search</a></li> -->
                 <li><a href="./index.html?fav" class="black-text">Favorites</a></li>
                 <li><a href="./About.html" class="black-text">About</a></li>
             </ul>
@@ -38,7 +50,7 @@
         <!-- Links that appear via drop down (side navigation when screen size is small / medium)-->
         <ul class="sidenav" id="navShortCut">
             <li><a href="#home">Home</a></li>
-            <li class="navbar-search-link"><a href="#search">Search</a></li>
+            <!-- <li class="navbar-search-link"><a href="#search">Search</a></li> -->
             <li><a href="#contact">Favorites</a></li>
             <li><a href="./About.html">About</a></li>
         </ul>
@@ -46,50 +58,74 @@
         <!--Head Image start-->
         <div class="row">
             <div class="col s12 m12 l12">
-                <img class="center display-image" src="./images/table.jpg">
+                <img class="center display-image hImg" src = "./images/table.jpg">
             </div>
         </div>
-        <!--Start Tag-->
-        <div class="row v-pad-more">
-            <div class="col s12 m12 l12 center">
-                <div class="blue-grey-text lighten-2"><br><h4>You Know That Thing You Just Cant Stop Thinking About?</h4>
-                    <h2>Its Food</h2>
-                    <p>If youre anything like the rest of us then food is your vibe</p>
-                    <h5>Welcome to our food finder website. Whatever you feel like eating we've got it. </h5>
-                </div>
-            </div>
-        </div>
-        <!--End Tag-->
+        <!-- Begin Search area -->
+        <div class="row" id="search-and-results"> <!-- added id -->
 
-        <!--Start Feature recipe-->
-        <div class="row">
-            <div class="col s12 m5 l5 center-align">
-                <img width="550" src="./images/gnocchi.webp">
+            <div class="col s1 m1 l1">           
             </div>
-            <div class="col s12 m7 l7">
-                <h4 class="center"><a href="https://www.bbcgoodfood.com/recipes/chorizo-mozzarella-gnocchi-bake">Chorizo & Mozzarella Gnocchi Bake</a></h4>
-                <h5 class="center">Upgrade cheesy tomato pasta with gnocchi, chorizo and mozzarella for a comforting bake that makes an excellent midweek meal</h5>
-
-                <div class="center red-text v-pad-more">
-                    <h4></h4><a href="https://www.bbcgoodfood.com/recipes/chorizo-mozzarella-gnocchi-bake">TRY IT HERE</a></h4>
-                </div>
-                <!--Add to social media links start-->
-                <div class="d-flex justify-center a2a_kit a2a_kit_size_32 a2a_default_style">
-                    <a class="a2a_button_facebook"></a>
-                    <a class="a2a_button_twitter"></a>
-                    <a class="a2a_button_email"></a>
-                    <a class="a2a_button_pinterest"></a>
-                </div>
-                <!-- AddTo Social Any End -->
+            <!-- Search Begin -->
+            <div class = "row">
+                    <div class="col s11 m5 l5" id="search">
+                        <!-- Search form begin -->
+                        <form action="" method="get" id="searchFormID">
+                            <h3 class="justified">Search Our Recipes Here</h3>
+                            <div class="row">
+                                <div class="col s9 input-field">
+                                    <input type="text" class="validate" name="search" id="keywordID" placeholder="Paella" title="Type in a keyword">
+                                </div>
+                                <div class="col s3" id="searchBtnDiv">
+                                    <button class="btn-floating waves-effect waves-light pulse black text-lighten-4" id="searchBtn">
+                                        <i class="material-icons">search</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- Search form end -->
+                        <!-- Quick links begin -->
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+                                <ul id="recipeQuicklinks">
+                                    <!-- quick links list is created in scripts.js file -->
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Quick links end -->
+                    </div>
+                        <!-- Search end -->
+                        <!-- End Search Area -->  
+                    
+                    
+                    <!--Start Feature recipe-->
+                    <div class="col s11 m5 l5 center-align" style = "background-color:gainsboro;">
+                        <h3>Featured Dish!</h3>
+                        <h4 class="center"><a href="https://www.bbcgoodfood.com/recipes/chorizo-mozzarella-gnocchi-bake">Chorizo & Mozzarella Gnocchi Bake</a></h4>
+                        <h5 class="center">Upgrade cheesy tomato pasta with gnocchi, chorizo and mozzarella for a comforting bake that makes an excellent midweek meal</h5>
+                        <img width="550" src="./images/gnocchi.webp">
+                        <!--Add to social media links start-->
+                        <div class="d-flex justify-center a2a_kit a2a_kit_size_32 a2a_default_style">
+                            <a class="a2a_button_facebook"></a>
+                            <a class="a2a_button_twitter"></a>
+                            <a class="a2a_button_email"></a>
+                            <a class="a2a_button_pinterest"></a>
+                        </div>
+                        <!-- AddTo Social Any End -->
+                        <div class="center red-text v-pad-more">
+                            <h4></h4><a href="https://www.bbcgoodfood.com/recipes/chorizo-mozzarella-gnocchi-bake">TRY IT HERE</a></h4>
+                        </div>                
+                    </div>  
+                    <div class="col s1 m1 l1" style = "background-color: white;">                
+                    </div>          
+                    </div>
             </div>
-        </div>  
         <!--End Feature recipe-->
 
-        <!-- Begin Random Recipes -->
+         <!-- Begin Random Recipes -->
         <!-- TODO this will be made redundant and incorporated in overall container. -->
-        <div class="row" id="random-recipes"></div>
+        <div class="row" id="apiRecipes"></div>
         <!-- End Random Recipes -->
-
         <!--Website Name-->
         <div class="row">
             <div class="col s12 m12 l12 center">
@@ -101,50 +137,6 @@
         </div>
         <!--Website name end-->
 
-        <!-- Begin Search area -->
-        <div class="row" id="search-and-results"> <!-- added id -->
-
-            <!-- Search Begin -->
-            <div class="col s12 m4 l4" id="search">
-                <!-- Search form begin -->
-                <form action="" method="get" id="searchFormID">
-                    <h3 class="justified">Search Our Recipes Here</h3>
-                    <div class="row">
-                        <div class="col s9 input-field">
-                            <input type="text" class="validate" name="search" id="keywordID" placeholder="Paella" title="Type in a keyword">
-                        </div>
-                        <div class="col s3" id="searchBtnDiv">
-                            <button class="btn-floating waves-effect waves-light pulse black text-lighten-4" id="searchBtn">
-                                <i class="material-icons">search</i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                <!-- Search form end -->
-
-                <!-- Quick links begin -->
-                <div class="row">
-                    <div class="col s12">
-                        <ul id="recipeQuicklinks">
-                            <!-- quick links list is created in scripts.js file -->
-                        </ul>
-                    </div>
-                </div>
-                <!-- Quick links end -->
-            </div>
-            <!-- Search end -->
-
-            <!-- TODO this will be made redundant -->
-            <!-- Results begin -->
-            <div class="col s12 m4 l4 z-depth-z" id="recipe-result">
-                <br><br>  <br><br> 
-                <img class="materialboxed" width="900" src="./images/feast.jpg">   
-            </div>
-            <div class="col s12 m4 l4" id="spare">
-            </div>
-            <!-- Results end. -->
-        </div>
-        <!-- End Search Area -->
 
         <!--Start Tag line-->
         <div class="row">
@@ -220,14 +212,23 @@
     </div>
     <!-- end container-->
 
-    <!-- Modal Begin -->
+    
+ <!-- Modal Begin -->
     <!-- Modal Structure -->
     <div id="modal1" class="modal" style = "max-height: 90%; top:0px;" >
         <div class="modal-content">
-            <h4>Recipe</h4>
-            <div id="modRecipeName"></div>
-            <img id="modRecipePic">
+            <h2>Recipe</h2>
+            <h3 id="modRecipeName"></h3>
+            <div class="row">
+                <div class="col s6 m6 l6">
+                   <img id="modRecipePic">
+                </div>   
+                <div class="col s6 m6 l6">
+                    <h3 id="wineHeading">Wine Suggestion</h3>
+                </div>                                         
+             </div>    
             <table>
+                
                 <thead id="modTablHead">
                     <tr>
                         <th>Quantity / Ingredients</th>
@@ -275,10 +276,13 @@
     </div>
     <!-- Modal End -->
 
+
+
+
     <!-- include scripts here -->
     <script async src="https://static.addtoany.com/menu/page.js"></script>
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <!-- Team 404 Scripts -->
@@ -291,6 +295,7 @@
     <script type="text/javascript" src="scripts/favouriteAdd.js"></script>
     <script type="text/javascript" src="scripts/mainPage.js"></script>
 
+    <!-- Initialize the Materialize sidenav plugin -->
     <script>
         $(document).ready(function() {
             $(".sidenav").sidenav()
