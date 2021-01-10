@@ -32,9 +32,7 @@ function initKeywordList() {
     renderQuicklinks();
 }
 
-
-
-// Function to fill the list of cities searched
+// Function to fill the list of keywords searched
 function renderKeywordList() {
     
     // Delete the list of keywords prior to adding new keywords list data 
@@ -80,27 +78,34 @@ function storeKeyword() {
     localStorage.setItem("keywords", JSON.stringify(userKeywordArray));   
 }
 
+$('#searchFormID')
+$('#searchBtnDiv')
+$('#searchBtn')
 
 
 // SEARCH BOX INPUT
 
 let keywordSearch;
 let keyword = "";
-// When a keyword is entered in the Search input box...
-$("#searchBtn").on("click", function (event) {
-    event.preventDefault();
+let keywordID = $('#keywordID');
+let keywordIDtop = $('#keywordIDtop');
+
+function getKeyword(keywordEvent) {
+    // event.preventDefault();
+
     // When clicked, grab the keyword and send it to the API for a search.
-    keywordSearch = $('#keywordID').val();
-    
+
     // This grabs text from the input box
-    keyword = keywordSearch.trim();
+    keyword = keywordEvent[0].value;
+    keyword = keyword.trim();
     
     // Return from function early if keyword search is blank
     // Change alert to a modal?? or some other warning //
     if (keyword === "") {
+        // TODO START REMOVE ALERT -- 
         alert("Keyword Search must be filled-in");
-        $("#recipe-result").empty();
-        $("#spare").empty();
+        // $("#recipe-result").empty();
+        // $("#spare").empty();
         return false;
     }
     else {
@@ -115,15 +120,28 @@ $("#searchBtn").on("click", function (event) {
         getRecipe(keyword);
         getWinePairing(keyword);    
     }
+};
+
+
+// When a keyword is entered in the Search input box...
+// $("#searchBtn").on("click", getKeyword(keywordID));
+// $("#searchBtntop").on("click", getKeyword(keywordIDtop));
+$("#searchBtn").click(function(){
+    getKeyword(keywordID);
+});
+$("#searchBtntop").click(function(){
+    getKeyword(keywordIDtop);
 });
 
+
+// click event sets focus if 'Search' is clicked in menu to bottom Search input
 $(".navbar-search-link").on("click", function() {
     console.log("navbar search link clicked");
     setFocus();
 })
 
+// 
 function setFocus() {
-    let keywordID = $("#keywordID");
     keywordID.focus();
     console.log("setFocus() is running");
 }
