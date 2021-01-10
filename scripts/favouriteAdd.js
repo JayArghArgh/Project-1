@@ -75,7 +75,7 @@ if (storedFavourites) {
 
 // Listen for clicks to favourite button.
 $('#fav-add').click(function (event) {
-    event.preventDefault();
+    //event.preventDefault();
     let favouriteItem = event.target;
     if (favouriteItem.getAttribute('class').includes('fav-add')) {
         updateFavourites(favouriteItem.getAttribute('id'));
