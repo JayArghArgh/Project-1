@@ -29,11 +29,11 @@ decIndexObj.addEventListener("click", function(){
 //Add Email event listener for modal
 modEmailBtnObj.addEventListener("click", function(){
 
-    if (modEmailBtnObj.value !== null || modEmailBtnObj.value !== undefined){    
+    if (modEmailInputObj.value !== ""){    
         sendEmail();
     }   
     else{ 
-        alert ("Enter a valid email you twat!")
+        alert ("Enter a valid email please")
     }
 });
 
