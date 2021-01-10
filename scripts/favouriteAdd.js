@@ -35,30 +35,38 @@ function viewFavourites() {
     let favContent;
     let favReturn = $('<row>');
     let favReturnLink;
+    let titleLink;
 
     // Set the attributes.
-    favReturn.attr('class', 's12');
+    favReturn.attr('class', 'col s12 m4 l4');
 
     // Loop through each favourite and append to table.
     storedFavourites.forEach(function (favItem){
         favItem = favItem.split(ITEM_SEP);
 
+        // Setup the favourites link
         favReturnLink = $('<a>',{
-            html: '<i className="material-icons">grade</i>',
+            html: '<i class="material-icons">grade</i>',
             title: 'Your fav',
             class: 'secondary-content',
             href: recipeLink + favItem[0].split("#")[1]
         });
+
+        // Setup the title link.
+        titleLink = $('<a>', {
+            html: '<h4>' + favItem[1] +'</h4>',
+            href: recipeLink + favItem[0].split("#")[1]
+        })
+
         favImg = $('<img alt="" class="circle">');
         favImg.attr('src', favItem[2])
         favLi = $('<li class="collection-item avatar">');
         favSpan = $('<span class="title">');
-        favSpan.html(favItem[1]);
-        favContent = $('<p>'+ favItem[0] +'</p>');
-
+        favSpan.append(titleLink);
+        // favContent = $('<p>'+ favItem[0] +'</p>');
         favLi.append(favImg);
         favLi.append(favSpan);
-        favLi.append(favContent);
+        // favLi.append(favContent);
         favLi.append(favReturnLink);
         favUl.append(favLi);
     });
@@ -84,7 +92,7 @@ if (storedFavourites) {
 
 // Listen for clicks to favourite button.
 $('#random-recipes').click(function (event) {
-    event.preventDefault();
+    // event.preventDefault();
     let favouriteItem = event.target;
     if (favouriteItem.getAttribute('class').includes('fav-add')) {
         updateFavourites(favouriteItem.getAttribute('id'));
