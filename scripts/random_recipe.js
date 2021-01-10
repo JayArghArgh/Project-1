@@ -62,7 +62,7 @@ function getRandomRecipe() {
         randomCard.append(cardContent);
         
         // added two helper classes to assist with layout ----- start
-        randomColumn.attr('class', 'col s12 m6 col-cards d-flex justify-center');
+        randomColumn.attr('class', 'col s12 m3 col-cards d-flex justify-center');
         // added two helper classes to assist with layout ----- end
 
         randomColumn.append(randomCard);
