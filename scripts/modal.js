@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.Modal.init(elems);
 });
 
+
 //Add increment modal data index event listener
 incIndexObj.addEventListener("click", function(){
     incModalIndex();         
