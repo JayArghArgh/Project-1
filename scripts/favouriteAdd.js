@@ -60,10 +60,8 @@ function viewFavourites() {
         favLi = $('<li class="collection-item avatar">');
         favSpan = $('<span class="title">');
         favSpan.append(titleLink);
-        // favContent = $('<p>'+ favItem[0] +'</p>');
         favLi.append(favImg);
         favLi.append(favSpan);
-        // favLi.append(favContent);
         favLi.append(favReturnLink);
         favUl.append(favLi);
     });
@@ -74,22 +72,13 @@ function viewFavourites() {
     return favReturn;
 }
 
-
-function viewFavourite(favId) {
-    // View a single recipe.
-    // Set required variables
-    let favReturn;
-    favReturn = "henlo " + favId;
-    return favReturn;
-}
-
 // If favourites, initialise them.
 if (storedFavourites) {
     userFavourites = storedFavourites;
 }
 
 // Listen for clicks to favourite button.
-$('#random-recipes').click(function (event) {
+$('#content-main').click(function (event) {
     // event.preventDefault();
     let favouriteItem = event.target;
     if (favouriteItem.getAttribute('class').includes('fav-add')) {
