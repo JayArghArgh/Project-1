@@ -41,7 +41,7 @@ if (urlSearch) {
     switch(urlSearch[0]) {
         case RECIPE:
             workingDiv.empty();
-            workingDiv.append(viewFavourite(urlSearch[1]));
+            workingDiv.append(viewSingleRecipe(urlSearch[1]));
             break;
         case FAV:
             workingDiv.empty();

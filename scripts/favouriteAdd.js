@@ -74,15 +74,6 @@ function viewFavourites() {
     return favReturn;
 }
 
-
-function viewFavourite(favId) {
-    // View a single recipe.
-    // Set required variables
-    let favReturn;
-    favReturn = "henlo " + favId;
-    return favReturn;
-}
-
 // If favourites, initialise them.
 if (storedFavourites) {
     userFavourites = storedFavourites;
