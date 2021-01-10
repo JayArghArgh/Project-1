@@ -1,7 +1,7 @@
 //"use strict";
 
-const API_APP_ID = "&app_id=7cfd493f";
-const API_APP_KEY = "&app_key=e16c4ecac435fcb87d81e33ed0937f0f";
+const API_APP_ID = "&app_id=2bdff21b";
+const API_APP_KEY = "&app_key=5d165cf0a191bece2f509c18480f1959";
 const API_PATH = "https://api.edamam.com/search";
 const DIV_DISPLAY = '#content-main';
 // const DIV_DISPLAY = '#apiRecipes';

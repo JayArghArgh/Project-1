@@ -60,10 +60,8 @@ function viewFavourites() {
         favLi = $('<li class="collection-item avatar">');
         favSpan = $('<span class="title">');
         favSpan.append(titleLink);
-        // favContent = $('<p>'+ favItem[0] +'</p>');
         favLi.append(favImg);
         favLi.append(favSpan);
-        // favLi.append(favContent);
         favLi.append(favReturnLink);
         favUl.append(favLi);
     });
