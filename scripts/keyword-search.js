@@ -7,7 +7,72 @@
 let userKeywordArray = ['beef', 'chicken', 'pork', 'vegetarian', 'smoothies', 'vegan', 'salad', 'dessert'];
 let keywordList = $("#recipeQuicklinks");
 
+// SEARCH BOX INPUT
+let keywordSearch;
 
+
+// When a keyword is entered in the Search input box...
+$("#searchBtn").on( "click", function(event) {
+    event.preventDefault();
+    let keywordID = $('#keywordID');
+    let keyword = keywordID[0].value;
+    keyword = keyword.trim();
+    
+    // Return from function early if keyword search is blank
+    // Change alert to a modal?? or some other warning //
+    if (keyword === undefined || "") {
+        // TODO START REMOVE ALERT -- 
+        alert("Keyword Search must be filled-in");
+        // $("#recipe-result").empty();
+        // $("#spare").empty();
+        return false;
+    }
+    else {
+        // The keyword from the input box is then added to array; clear the input
+        userKeywordArray.push(keyword);
+        keywordSearch = "";
+        
+        // calling renderKeywordList which handles the processing of our keywords array
+        storeKeyword();
+        renderKeywordList();
+        renderQuicklinks();
+        getRecipe(keyword);
+        getWinePairing(keyword);
+    }
+  });
+
+  
+  $("#searchBtntop").on( "click", function(event) {
+    event.preventDefault();
+    let keywordID = $('#keywordIDtop');
+
+    let keyword = keywordID[0].value;
+    keyword = keyword.trim();
+    
+    // Return from function early if keyword search is blank
+    // Change alert to a modal?? or some other warning //
+    if (keyword === undefined || "") {
+        // TODO START REMOVE ALERT -- 
+        alert("Keyword Search must be filled-in");
+        // $("#recipe-result").empty();
+        // $("#spare").empty();
+        return false;
+    }
+    else {
+        // The keyword from the input box is then added to array; clear the input
+        userKeywordArray.push(keyword);
+        keywordSearch = "";
+        
+        // calling renderKeywordList which handles the processing of our keywords array
+        storeKeyword();
+        renderKeywordList();
+        renderQuicklinks();
+        getRecipe(keyword);
+        getWinePairing(keyword);
+    }
+  });
+
+//Initialise key word list from local storage
 initKeywordList();
 
 function initKeywordList() {
@@ -78,21 +143,11 @@ function storeKeyword() {
     localStorage.setItem("keywords", JSON.stringify(userKeywordArray));   
 }
 
-$('#searchFormID')
-$('#searchBtnDiv')
-$('#searchBtn')
 
-
-// SEARCH BOX INPUT
-
-let keywordSearch;
-let keyword = "";
-let keywordID = $('#keywordID');
-let keywordIDtop = $('#keywordIDtop');
 
 function getKeyword(keywordEvent) {
-    // event.preventDefault();
-
+    //event.preventDefault();
+   
     // When clicked, grab the keyword and send it to the API for a search.
 
     // This grabs text from the input box
@@ -120,6 +175,7 @@ function getKeyword(keywordEvent) {
         getRecipe(keyword);
         getWinePairing(keyword);   
     }
+
 };
 
 
@@ -132,23 +188,13 @@ $("#searchBtntop").on("click", function(){
 });
 
 
-// click event sets focus if 'Search' is clicked in menu to bottom Search input
-$(".navbar-search-link").on("click", function() {
-    console.log("navbar search link clicked");
-    setFocus();
-})
-
-// 
-function setFocus() {
-    keywordID.focus();
-    console.log("setFocus() is running");
-}
 
 
 // QUICKLINKS
 // When an element inside the keyword <ul> is clicked...
 keywordList.on("click", function (event) {
-    event.preventDefault();
+ 
+   event.preventDefault();
     
     let element = event.target;
 
@@ -163,10 +209,12 @@ keywordList.on("click", function (event) {
         renderKeywordList();
         renderQuicklinks();
         }
-    });
+    
+});
 
 
 
+    
 
 function renderQuicklinks() {
     console.log("the render QuickLinks function is running")

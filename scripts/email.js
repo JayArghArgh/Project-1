@@ -12,7 +12,7 @@ function sendEmail() {
 	Subject : "Your Recipe",
 	Body : 
 	
-	"Hi " + modNameInputObj.value + "! Thanks for using our recipe selection tool. Your recipe can be viewed via the link @  : " + apiResponseParsed.hits[modIndex].recipe.uri + " " +
+	"Hi " + modNameInputObj.value + "! Thanks for using our recipe selection tool. Your recipe can be viewed via the link @  : " + apiResponseParsed.hits[modIndex].recipe.url + " " +
 	
 	"Ingredients : " +  apiResponseParsed.hits[modIndex].recipe.ingredientLines
 		
