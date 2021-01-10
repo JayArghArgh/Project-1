@@ -20,6 +20,10 @@ function getWinePairing(mainIngredient) {
         url: apiUrl2,
         method: "GET"
     }).then(function(response) {
+
+console.log(response);
+getRecipeInstructionsJS();
+
             // create <ul> for list of paired wines and a pairing text explaining the match
             let spareDiv = $('#spare');
             spareDiv.empty();
