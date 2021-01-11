@@ -131,6 +131,10 @@ footer {
     height: 500px;
 }
 
+.collection {
+    width: 100%;
+}
+
 .single-recipe-image {
     object-fit: cover;
     /*width: 100%;*/
