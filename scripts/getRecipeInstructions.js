@@ -34,8 +34,7 @@ function getRecipeInstructionsJS() {
 
             //Store response in session storage for use by other functions
             sessionStorage.setItem("recipeInstructions" , JSON.stringify(response));
-            let recipeInstructions = sessionStorage.getItem("recipeInstructions");
-            let recipeInstructionsParsed =  JSON.parse(recipeInstructions);
+            
             console.log("Session Storage rec instructions:" + recipeInstructionsParsed);
 
 
