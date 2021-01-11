@@ -46,10 +46,12 @@ if (urlSearch) {
         case FAV:
             workingDiv.empty();
             workingDiv.append(viewFavourites());
+            workingDiv.append('<div id="includeCollage"></div>');
             break;
         case ABOUT_PAGE:
             workingDiv.empty();
-            workingDiv.append(returnAbout());
+            workingDiv.append(returnAbout()[0]);
+            workingDiv.append('<div id="includeCollage"></div>');
             break;
         default:
         // TODO add in a notifier to the user their match cold not be found.

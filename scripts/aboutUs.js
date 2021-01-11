@@ -6,6 +6,7 @@ function returnAbout(){
     let divRow = $('<div class="row">');
     let divCol = $('<div className="col s12 m12 l12 center">');
     let divContainer = $('<div class="black-text">');
+    let includeCollage = ('<div id="includeCollage"></div>');
 
     // Line em all up.
     divContainer.append('<h1>About Us</h1>');
