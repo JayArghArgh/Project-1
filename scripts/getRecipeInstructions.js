@@ -24,7 +24,7 @@ function getRecipeInstructionsJS() {
         // Gets a bunch of recipes matching the keyword searched.
         let apiUrl3 = API_PATH3;
         let apiUrlExtension3 = "?url=" + recipeURL;  // edamam returned Recipe URL
-        apiUrl3 += apiUrlExtension3 + API_APP_KEY2;
+        apiUrl3 += apiUrlExtension3 + API_APP_KEY3;
 
         // The Ajax query itself.
         $.ajax({
