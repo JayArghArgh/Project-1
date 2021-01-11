@@ -101,6 +101,10 @@ function popModalIngredients(){
  methTableBody.setAttribute("id", "modRecipeMethod");
  document.getElementById("modInsHead").appendChild(methTableBody);
 
+ let recipeInstructions = sessionStorage.getItem("recipeInstructions");
+ console.log(recipeInstructions);
+ let recipeInstructionsParsed =  JSON.parse(recipeInstructions);
+ 
  //Loop through method / steps to create method table
  for (let y=0; y < recipeInstructionsParsed.analyzedInstructions[0].steps.length; y++) { 
     let methRow = methTableBody.insertRow(y);
