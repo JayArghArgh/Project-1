@@ -154,36 +154,7 @@
                     </div>
                 </div>
                 <!--End Feature recipe-->
-
-                 <!-- Begin Random Recipes -->
-                <!-- TODO this will be made redundant and incorporated in overall container. -->
-<!--                <div class="row" id="apiRecipes"></div>-->
-                <!-- End Random Recipes -->
-
-                <!--Website Name-->
-                <div class="row">
-                    <div class="col s12 m12 l12 center">
-                        <div class="blue-grey-text lighten-2" style="border: 1px solid rgb(37, 36, 36)">
-                            <h1>HANGRY</h1>
-                            <h5 class="red-text">For The Love Of Food</h5>
-                        </div>
-                    </div>
-                </div>
-                <!--Website name end-->
-
-
-                <!--Start Tag line-->
-                <div class="row">
-                    <div class="col s12 m12 l12 center">
-                        <div class="v-pad-more tag-line">
-                            <!-- TODO highlight the hashtags, link to a search? -->
-                            <h4>Have a #GetTogether Invite your #Friends Prepare a #SpecialMeal</h4>
-                        </div>
-                    </div>
-                </div>
-                <!--End Tag Line-->
-
-
+                <div id="includeCollage"></div>
 
             </div>
         </div>
@@ -320,6 +291,12 @@
     <script type="text/javascript" src="scripts/aboutUs.js"></script>
     <script type="text/javascript" src="scripts/mainPage.js"></script>
     <script type="text/javascript" src="scripts/getRecipeInstructions.js"></script>
+
+    <script>
+        $(function(){
+            $("#includeCollage").load("collage.html");
+        });
+    </script>
 
     <!-- Initialize the Materialize sidenav plugin -->
     <script>
