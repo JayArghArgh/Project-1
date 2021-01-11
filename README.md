@@ -8,10 +8,17 @@
  * Linda Hlubi (AKA The Style Queen (or King))
 
 
-## App url:
+## Deployed url: https://lindahlubi.github.io/Project-1/
 
 
 ## About This App
+
+
+Preview
+<br>
+<img class="materialboxed collage-image" src="./images/Screen Shot 2021-01-11 at 11.38.16 am.png">
+<img class="materialboxed collage-image" src="./images/Screen Shot 2021-01-11 at 11.39.02 am.png">
+<br>
 
 Our web application allows "Hangry Users" to quickly appease their insatiable and selective hunger. Our quick and streamlined interface, backed up by our unmatched coding prowess enables even the most brain dead user (with low blood sugar levels) to gain an understanding of how to cook even the most complex of dishes. 
 
