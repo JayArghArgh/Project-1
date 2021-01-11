@@ -8,7 +8,7 @@
  * Linda Hlubi (AKA The Style Queen (or King))
 
 
-## App url:
+## Deployed url: https://lindahlubi.github.io/Project-1/
 
 
 ## About This App
