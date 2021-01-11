@@ -12,7 +12,7 @@ function getWinePairing(mainIngredient) {
     let apiUrl2 = API_PATH2;
     let apiUrlExtension2 = "?food=" + mainIngredient;
     let apiNumberOfResults = "&number=2";  // not needed in the call?
-    apiUrl2 += apiUrlExtension2 + API_APP_KEY3;
+    apiUrl2 += apiUrlExtension2 + API_APP_KEY4;
 
     // add the Spoonacular suggested Paired Wines to Spare div
     // The Ajax query itself.
